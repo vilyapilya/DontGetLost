@@ -17,10 +17,10 @@ With this app, users should be able to:
  
 ## Links to Design Documents
  
-- [Wireframes](tbd)
-- [API endpoints](tbd)
-- [Schema](tbd)
-- [Sample State](tbd)
+- [Wireframes](/docs/images)
+- [API endpoints](/docs/api_end_points)
+- [Schema](/docs/schema)
+- [Sample State](/docs/state_slice)
  
 ## Technologies and Technical Implementations
  

@@ -1,0 +1,22 @@
+API End Points
+ 
+Create 	/session 
+Delete	           /session
+ 
+Create 	/users
+Get		/users		index
+Get 		/users/id 	show
+Update	 	/users/id	
+ 
+get 		/groups	index
+get		/group/id	show
+create 		/groups
+destory	/groups/id
+update		/groups/id
+ 
+create		/invitations 
+destroy	/invitations/id
+get		/invitations/id	show
+Get		/invitations/	index
+ 
+ 
