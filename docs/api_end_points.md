@@ -1,22 +1,22 @@
-#API End Points:
+# API End Points:
  
-*create   /session 
-*delete	  /session
+* create   /session 
+* delete	  /session
  
-*create   /users
-*get	  /users		      index
-*get 	  /users/id 	      show
-*update	  /users/id	
+* create   /users
+* get	  /users		      index
+* get 	  /users/id 	      show
+* update	  /users/id	
  
-*get 	  /groups	          index
-*get	  /group/id	          show
-*create   /groups
-*destory  /groups/id
-*update	  /groups/id
+* get 	  /groups	          index
+* get	  /group/id	          show
+* create   /groups
+* destory  /groups/id
+* update	  /groups/id
  
-*create	  /invitations 
-*destroy  /invitations/id
-*get	  /invitations/id	  show
-*Get	  /invitations/	      index
+* create	  /invitations 
+* destroy  /invitations/id
+* get	  /invitations/id	  show
+* get	  /invitations/	      index
  
  

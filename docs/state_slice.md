@@ -1,3 +1,4 @@
+```
 A sample slice of state:
 {
   currentUser: {
@@ -42,4 +43,5 @@ A sample slice of state:
     }
   }
 }
- 
+
+```
