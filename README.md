@@ -18,9 +18,9 @@ With this app, users should be able to:
 ## Links to Design Documents
  
 - [Wireframes](/docs/images)
-- [API endpoints](/docs/api_end_points)
-- [Schema](/docs/schema)
-- [Sample State](/docs/state_slice)
+- [API endpoints](/docs/api_end_points.md)
+- [Schema](/docs/schema.md)
+- [Sample State](/docs/state_slice.md)
  
 ## Technologies and Technical Implementations
  
