@@ -4,7 +4,7 @@ Tony Weng, Tu Ngo, Vilya Levitskiy, and Vincent Chan
  
 ## Background
  
-Inspired by Find Your Friends, Don't Get Lost is an Android App that lets you keep track of your friends- no matter how directionally challenged they might be.
+Inspired by Find Your Friends, Don't Get Lost is an Android App that lets you keep track of your friends- no matter how directionally challenged they might be. Don’t Get Lost is a mobile app that allows users to see their location on Google Maps as well as the location of others they need to connect with. It is built on a Rails backend with React Native as the frontend. Through the use of websockets, the user’s geolocation is continually updated and rendered on Google Maps.
  
 ## Functionality & MVPs
  
@@ -15,6 +15,7 @@ With this app, users should be able to:
 - [ ] Add group members through invites
 - [ ] Access a 2D map displaying the locations of said users and their group members
  
+ 
 ## Links to Design Documents
  
 - [Wireframes](/docs/images)
@@ -22,23 +23,12 @@ With this app, users should be able to:
 - [Schema](/docs/schema.md)
 - [Sample State](/docs/state_slice.md)
  
+ 
 ## Technologies and Technical Implementations
  
 This app will be built with React Native. On the backend, we will use Rails and a PostgreSQL database.
 We will implement Google/Facebook o-auth as an optional login method for users.
 We will use Google Static Maps API and implement a websocket to update positions in real time.
- 
-## Project Breakdown
- 
-O-auth, regular backend auth, frontend components (groups, group detail, menu, map, login screen, invites index), web socket, models (users, groups, invites), controllers (users, sessions, groups, invites, application), database (users, groups, invites), actions (), api utils (), reducers, etc. Time needed to learn new technologies.
- 
-### Tony's Responsibilities:
- 
-### Tu's Responsibilities:
- 
-### Vilya's Responsibilities:
- 
-### Vincent's Responsibilities:
  
 ## Tentative Implementation Timeline:
  
@@ -99,4 +89,3 @@ Each group member will get 5-10 friends/family to review their app. Get feedback
 - [ ] Public groups feature
 - [ ] Blocking feature
 - [ ] Invisibility mode feature
-
