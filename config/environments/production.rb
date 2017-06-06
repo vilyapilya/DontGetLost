@@ -83,4 +83,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Set Action Cable server url for consumer connection
+  # config.action_cable.url = "ws://localhost:28080"
+  # config.action_cable.allowed_request_origins = ['http://rubyonrails.com', /http:\/\/ruby.*/]
+  config.action_cable.disable_request_forgery_protection = true
+  config.active_record.dump_schema_after_migration = false
 end
