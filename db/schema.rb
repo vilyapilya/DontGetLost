@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170606013835) do
   end
 
   create_table "invitations", force: :cascade do |t|
+    t.integer  "invitee_id", null: false
     t.integer  "inviter_id", null: false
     t.integer  "group_id",   null: false
     t.datetime "created_at", null: false
