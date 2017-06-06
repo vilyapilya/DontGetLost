@@ -319,3 +319,5 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/vincentchan/Desktop/DontGetLost/config/initializers/new_framework_defaults.rb:23)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/vincentchan/Desktop/DontGetLost/config/initializers/new_framework_defaults.rb:23)
