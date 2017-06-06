@@ -12,8 +12,16 @@
 class Invitation < ActiveRecord::Base
   validates :inviter_id, :invitee_id, :group_id, presence: true
 
-  belongs_to :group_id
-  belongs_to :invitee_id, :class_name => "User"
-  belongs_to :inviter_id, :class_name => "User"
+  belongs_to :group,
+  primary_key: :id,
+  foreign_key: :group_id,
+  class_name: :Group
+
+  belongs_to :invitee,
+  primary_key: :id,
+  foreign_key: :invitee_id,
+  class_name: :User
+
+  belongs_to :inviter, :class_name => "User"
 
 end
