@@ -1,3 +1,0 @@
-DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <top (required)> at /Users/tungo/app_academy/projects/dont-get-lost/config/environment.rb:5)
-DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <top (required)> at /Users/tungo/app_academy/projects/dont-get-lost/config/environment.rb:5)
-DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/tungo/app_academy/projects/dont-get-lost/config/initializers/new_framework_defaults.rb:23)
