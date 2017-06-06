@@ -12,8 +12,7 @@ class Group < ActiveRecord::Base
     foreign_key: :group_id
 
   has_many :members,
-    class_name: :User,
+    class_name: :Group_Member,
     primary_key: :id,
     foreign_key: :group_id
-
 end
