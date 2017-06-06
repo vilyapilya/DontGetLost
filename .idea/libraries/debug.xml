@@ -1,0 +1,31 @@
+<component name="libraryTable">
+  <library name="debug">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.0.1_fccbf0c42c76849f13e4646dc09318d2d16db429.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1_b2d37642630439e5bce45af222086cce85f4712c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.0.1_ebc5f6f836ff7b52f9f7594ef07b8a56e19b2878.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.0.1_0117fdb88a97311aa1f35dce947008695f85f4f3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.0.1_87963fb65967907a0ada0871e6f4bfcc639a8f0c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.0.1_aed2e8a9ff1a692f820912795744bb2d15df75f4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_4a54682c81eadc5ff0b85c4b5abac00215a7b86c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_648145b08fc60348ffe1678df7c8b11ef1940eb0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.0.1_15f748a1d663c1f37a4f5e84c8a509b9d01b812f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.44.3_c305a5ffdc7b1165795927810d1980062280af3f.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_5b0192db2ed3240bdaecc1dff48f35c72237bb42.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_42225dfc7928093aeaf945ce6c8ab267fab99268.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_5fd666d2775930f921d2e191ade76fe7bafd11cd.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_5ec3546e19412b95388ff7607549628c587d5d09.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_512403287b3c5375d3bf25258246bf1955db78ca.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_6ba0e1f91f05c8a1d41136d628b79c722ab6cc89.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5_ee0c2bd065c1f644926d138d6f16b3e8b4844889.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.1_ed9af461dc70b8d4930f271651fcc1631d020c94.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_5069151aab4e993ad0473479c4b487c89f9da2b7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_1200f5994f72c10e410150f0eeaba38465390495.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_fc3792064e2fe88e399cbfe4c33ec77ef3167dd1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/debug_5bef5d70f93488fb720752d19179dfdac664cf56.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_b1518cb141c22e63cc39d49c5f2138f08e1ce47a.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
