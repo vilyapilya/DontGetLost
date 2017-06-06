@@ -1,6 +1,7 @@
 class Api::InvitationsController < ApplicationController
 
   def create
+    debugger;
     @invitation = Invitation.create(invitation_params)
     if @invitation.safe
       render "api/invitaions"
@@ -19,6 +20,8 @@ class Api::InvitationsController < ApplicationController
   end
 
   def invitations_params
-    params.require(:invitations).permit(:inviter_id, :invited_id, :group_id)
+    params.require(:invitations).permit(:inviter_id, :invitee_id, :group_id)
   end
 end
+
+Invitation.create({inviter_id: 1, invitee_id: 2, group_id: 1})
