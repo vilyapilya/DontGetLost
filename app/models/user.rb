@@ -19,23 +19,23 @@ class User < ActiveRecord::Base
   attr_reader :password
   after_initialize :guarantee_session_token
 
-  has_many :invitations_sent,
-    class_name: :Invitation,
-    primary_key: :id,
-    foreign_key: :inviter_id
-
-  has_many :invitees,
-    through: :invitations_sent,
-    source: :invitee_id
-
-  has_many :invitations_received,
-    class_name: :Invitation,
-    primary_key: :id,
-    foreign_key: :invitee_id
-
-  has_many :inviters,
-    through: :invitations_received,
-    source: :inviter_id
+  # has_many :invitations_sent,
+  #   class_name: :Invitation,
+  #   primary_key: :id,
+  #   foreign_key: :inviter_id
+  #
+  # has_many :invitees,
+  #   through: :invitations_sent,
+  #   source: :invitee_id
+  #
+  # has_many :invitations_received,
+  #   class_name: :Invitation,
+  #   primary_key: :id,
+  #   foreign_key: :invitee_id
+  #
+  # has_many :inviters,
+  #   through: :invitations_received,
+  #   source: :inviter_id
 
   has_many :created_groups,
     class_name: :Group,
