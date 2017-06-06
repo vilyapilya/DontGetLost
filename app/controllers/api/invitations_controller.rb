@@ -19,6 +19,6 @@ class Api::InvitationsController < ApplicationController
   end
 
   def invitations_params
-    params.require(:invitations).permit(:inviter_id, :invited_id, :group_id)
+    params.require(:invitations).permit(:inviter_id, :invitee_id, :group_id)
   end
 end
