@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   [1m[36m (36.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
   [1m[35m (3.3ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
@@ -326,3 +327,8 @@ WHERE c.contype = 'f'
 ORDER BY c.conname
 [0m
 >>>>>>> baeef1d3dc18c8271dc95a7dd642405013d9eced
+=======
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <top (required)> at /Users/tungo/app_academy/projects/dont-get-lost/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <top (required)> at /Users/tungo/app_academy/projects/dont-get-lost/config/environment.rb:5)
+DEPRECATION WARNING: ActiveSupport.halt_callback_chains_on_return_false= is deprecated and will be removed in Rails 5.2. (called from <top (required)> at /Users/tungo/app_academy/projects/dont-get-lost/config/initializers/new_framework_defaults.rb:23)
+>>>>>>> 8a8b3632184fa7fe3d55188e4a423e7c7c844e79
