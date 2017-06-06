@@ -15,9 +15,4 @@ class Group < ActiveRecord::Base
     class_name: :Group_Member,
     primary_key: :id,
     foreign_key: :group_id
-
-  has_many :invitations,
-    class_name: :Invitation,
-    primary_key: :id,
-    foreign_key: :group_id
 end
