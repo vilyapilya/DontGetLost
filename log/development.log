@@ -326,3 +326,50 @@ WHERE c.contype = 'f'
 ORDER BY c.conname
 [0m
 >>>>>>> baeef1d3dc18c8271dc95a7dd642405013d9eced
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (6.3ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'username1' LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "username1"], ["password_digest", "$2a$10$ipuF6WTttE5ayiW54WsCqu99RI.I3SQR2wjtNGnQCOB0BOHGpC3iq"], ["session_token", "SBxcVSPyAvhlCR4wjGM3wg"], ["created_at", "2017-06-06 16:43:10.069138"], ["updated_at", "2017-06-06 16:43:10.069138"]]
+  [1m[35m (5.8ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "groups" ("group_name", "creator_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_name", "group"], ["creator_id", 1], ["created_at", "2017-06-06 16:43:51.738913"], ["updated_at", "2017-06-06 16:43:51.738913"]]
+  [1m[35m (6.2ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "invitations" ("invitee_id", "inviter_id", "group_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["invitee_id", 1], ["inviter_id", 1], ["group_id", 1], ["created_at", "2017-06-06 16:57:46.548093"], ["updated_at", "2017-06-06 16:57:46.548093"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[36mGroupMember Load (1.0ms)[0m  [1mSELECT "group_members".* FROM "group_members"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "group_members" ("group_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["group_id", 1], ["user_id", 1], ["created_at", "2017-06-06 17:06:55.201250"], ["updated_at", "2017-06-06 17:06:55.201250"]]
+  [1m[35m (2.3ms)[0m  COMMIT
+  [1m[36mUser Load (20.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36m (2.5ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (12.0ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'user1' LIMIT 1
+  [1m[36mSQL (14.1ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "user1"], ["password_digest", "$2a$10$rL6WuH7z9q7GSKKWyUo7uOcB1UxHVuisfUGf9su8j.HDxUwPF/zKy"], ["session_token", "BxNEH9jkVuNrU-uhvXyx-g"], ["created_at", "2017-06-06 17:19:02.302152"], ["updated_at", "2017-06-06 17:19:02.302152"]]
+  [1m[35m (3.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'user1' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."username" = 'user1' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'user0' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "user0"], ["password_digest", "$2a$10$OXJflPHFZwjmKE2a915qzeUNZKpAcRzjfBDxD9l3qDmCfVm5EhuXK"], ["session_token", "HADxwFgqVHDWtSqXDLPKDA"], ["created_at", "2017-06-06 17:20:25.335158"], ["updated_at", "2017-06-06 17:20:25.335158"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'user2' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "user2"], ["password_digest", "$2a$10$Jf4F7ZDWdijSmsGZoeX5wOrvJ4GxbHnHtapnAlL73g01MMc./Z6Di"], ["session_token", "x5JaI5xhPSjq65XFdHdLjg"], ["created_at", "2017-06-06 17:20:31.827443"], ["updated_at", "2017-06-06 17:20:31.827443"]]
+  [1m[35m (2.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "invitations" ("invitee_id", "inviter_id", "group_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["invitee_id", 1], ["inviter_id", 1], ["group_id", 1], ["created_at", "2017-06-06 17:24:14.876785"], ["updated_at", "2017-06-06 17:24:14.876785"]]
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "invitations" ("invitee_id", "inviter_id", "group_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["invitee_id", 1], ["inviter_id", 1], ["group_id", 1], ["created_at", "2017-06-06 17:24:28.029241"], ["updated_at", "2017-06-06 17:24:28.029241"]]
+  [1m[35m (4.6ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "invitations" ("invitee_id", "inviter_id", "group_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["invitee_id", 1], ["inviter_id", 1], ["group_id", 1], ["created_at", "2017-06-06 17:24:42.701702"], ["updated_at", "2017-06-06 17:24:42.701702"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "invitations" ("invitee_id", "inviter_id", "group_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["invitee_id", 1], ["inviter_id", 1], ["group_id", 1], ["created_at", "2017-06-06 17:25:01.732363"], ["updated_at", "2017-06-06 17:25:01.732363"]]
+  [1m[35m (2.1ms)[0m  COMMIT
+  [1m[36mInvitation Load (0.5ms)[0m  [1mSELECT "invitations".* FROM "invitations"[0m
