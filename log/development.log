@@ -60,9 +60,9 @@ ORDER BY c.conname
   [1m[36m (373.5ms)[0m  [1mCREATE DATABASE "DontGetLost_development" ENCODING = 'unicode'[0m
   [1m[35m (249.1ms)[0m  CREATE DATABASE "DontGetLost_test" ENCODING = 'unicode'
   [1m[36mSQL (2.1ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (6.4ms)[0m  CREATE TABLE "groups" ("id" serial primary key, "group_name" character varying NOT NULL, "creator_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (6.4ms)[0m  CREATE TABLE "groups" ("id" serial primary key, "group_name" character varying NOT NULL, "creator_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (3.3ms)[0m  [1mCREATE TABLE "invitations" ("id" serial primary key, "inviter_id" integer NOT NULL, "group_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (4.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "session_token" character varying NOT NULL, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (4.9ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "session_token" character varying NOT NULL, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (1.5ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users" USING btree ("session_token")[0m
   [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")
   [1m[36m (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
@@ -72,9 +72,9 @@ ORDER BY c.conname
   [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170605190152')[0m
   [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170605191016')
   [1m[36mSQL (0.3ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
-  [1m[35m (6.7ms)[0m  CREATE TABLE "groups" ("id" serial primary key, "group_name" character varying NOT NULL, "creator_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (6.7ms)[0m  CREATE TABLE "groups" ("id" serial primary key, "group_name" character varying NOT NULL, "creator_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (3.1ms)[0m  [1mCREATE TABLE "invitations" ("id" serial primary key, "inviter_id" integer NOT NULL, "group_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
-  [1m[35m (4.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "session_token" character varying NOT NULL, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[35m (4.3ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "password" character varying NOT NULL, "session_token" character varying NOT NULL, "image_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)
   [1m[36m (2.9ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users" USING btree ("session_token")[0m
   [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX  "index_users_on_username" ON "users" USING btree ("username")
   [1m[36m (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
@@ -141,13 +141,7 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
-<<<<<<< HEAD
-  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
-  [1m[35mUser Exists (4.6ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."username" = 'Hank' LIMIT 1
-  [1m[36mSQL (2.3ms)[0m  [1mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Hank"], ["password_digest", "$2a$10$aK3QqgUBUZ0PP98Cl/yNE.xoC64VzuSdXQSNrvUgVyG6xboAbFt6q"], ["session_token", "e_yCjsHU60meme_HbYK3-Q"], ["created_at", "2017-06-06 01:13:39.337132"], ["updated_at", "2017-06-06 01:13:39.337132"]]
-  [1m[35m (0.7ms)[0m  COMMIT
-  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
-=======
+
   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
 Migrating to CreateUsers (20170605190152)
   [1m[35m (0.1ms)[0m  BEGIN
@@ -325,4 +319,3 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
->>>>>>> baeef1d3dc18c8271dc95a7dd642405013d9eced
