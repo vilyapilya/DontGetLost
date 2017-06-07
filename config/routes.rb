@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :groups, only: [:show, :index, :create, :destroy, :update]
     resources :invitations, only: [:create, :destroy]
   end
+
 end
