@@ -40,3 +40,27 @@ export const requestAllGroups = () => dispatch => {
       .then(groups => dispatch(receiveAllGroups(groups)))
   );
 };
+
+export const deleteGroup = id => dispatch => {
+  return (
+    GroupAPIUtil
+      .deleteGroup(id)
+      .then(group => dispatch(removeGroup))
+  );
+};
+
+export const createGroup = group => dispatch => {
+  return (
+    GroupAPIUtil
+      .createGroup(group)
+      .then(group => dispatch(receiveGroup))
+  );
+};
+
+export const updateGroup = group => dispatch => {
+  return (
+    GroupAPIUtil
+      .updateGroup(group)
+      .then(group => dispatch(receiveGroup))
+  );
+};
