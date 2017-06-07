@@ -22,7 +22,7 @@ class DontGetLost extends Component {
       <View style={styles.container}>
         <Root />
       </View>
-    )
+    );
   }
 }
 
