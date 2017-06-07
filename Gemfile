@@ -33,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Update 4.2 to 5
 gem 'rails-controller-testing'
 gem 'activemodel-serializers-xml'
+gem 'puma', '~> 3.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
