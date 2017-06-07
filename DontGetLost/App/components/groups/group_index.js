@@ -3,6 +3,8 @@ import { View, Text } from 'react-native';
 
 class GroupIndex extends Component{
 
+
+
   render() {
     return (
       <View>
