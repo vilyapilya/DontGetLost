@@ -16,44 +16,7 @@ class Login extends Component{
   }
 
   async onRegisterPress() {
-    // return (fetch( 'http://localhost:3000/api/users',
-    //   {
-    //     method: 'GET',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //     // body: JSON.stringify({
-    //       // user: {
-    //       //   name: this.state.name,
-    //       //   email: this.state.email,
-    //       //   password: this.state.password
-    //       // }
-    //     // })
-    //   })
-    //   .catch((stuff) => {console.log(stuff)}))
-    // }
-
-    // try {
-    //   let response = await fetch( 'http://localhost:3000/api/users', {
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       user: {
-    //         name: this.state.name,
-    //         email: this.state.email,
-    //         password: this.state.password
-    //       }
-    //     })
-    //
-    //   });
-    //
-    //   let res = await response.text();
-    //   console.log(res);
-    //
-    // } catch(errors) {
-    //
-    // }
-
+    // fetch( 'http://localhost:3000/api/users, {'
     try {
       let response = await fetch( 'https://afternoon-beyond-22141.herokuapp.com/api/users', {
         method: 'POST',
@@ -95,6 +58,7 @@ class Login extends Component{
     }
   }
 
+
   // <Text>{this.state.email}</Text>
   render() {
     return (
@@ -106,11 +70,20 @@ class Login extends Component{
         <TouchableHighlight onPress={this.onRegisterPress.bind(this)}>
           <Text>Reg</Text>
         </TouchableHighlight>
+        <Errors errors={this.state.errors} />
       </View>
 
     );
 
   }
+}
+
+const Errors = (props) => {
+  return (
+    <View>
+    {props.errors.map((error, i) => <Text key={i}>{error}</Text>)}
+    </View>
+  );
 }
 
 export default Login;
