@@ -12,9 +12,6 @@
 !/log/.keep
 /tmp
 
-/log/
-log/
-log/*
 
 node_modules/
 bundle.js
