@@ -1,15 +1,14 @@
 export const getGroup = id => (
   $.ajax({
     method: 'GET',
-    url: `api/groups`
+    url: `api/groups/${id}`
   })
 );
 
-export const getGroups = groups => (
+export const getGroups = () => (
   $.ajax({
     method: 'GET',
-    url: 'api/groups',
-    data: groups
+    url: 'api/groups'
   })
 );
 
