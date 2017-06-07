@@ -11,38 +11,21 @@ import {
   Text,
   View
 } from 'react-native';
-// import Root from '/App/Root';
-import Login from './App/Login/login';
+import Root from './App/Root';
+// <Login />
+
+// import Login from './App/Login/login';
 
 class DontGetLost extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Login />
+        <Root />
       </View>
     )
   }
 }
 
-// export default class DontGetLost extends Component {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.welcome}>
-//           Apple sucks!
-//         </Text>
-//         <Text style={styles.instructions}>
-//           To get started, edit index.android.js
-//         </Text>
-//         <Text style={styles.instructions}>
-//           Double tap R on your keyboard to reload,{'\n'}
-//           Shake or press menu button for dev menu
-//         </Text>
-//       </View>
-//     );
-//   }
-// }
-//
 const styles = StyleSheet.create({
   container: {
     flex: .5,
@@ -60,6 +43,18 @@ const styles = StyleSheet.create({
   //   color: '#333333',
   //   marginBottom: 5,
   // },
+
+  // window.fetching = fetch(`http://localhost:3000/api/users`, {
+  //   method: 'GET',
+  //   headers: {
+  //     'Accept': 'application/json',
+  //     'Content-Type': 'application/json'
+  //   }
+  // })
+  //
+  // fetching.then()
+
+  // window.state = store.getState()
 });
 
 AppRegistry.registerComponent('DontGetLost', () => DontGetLost);
