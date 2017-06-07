@@ -12,7 +12,7 @@ import {
   StyleSheet
 } from 'react-native';
 
-import Login from './Component/Login/login';
+import Login from './components/login/login';
 
 class Root extends Component {
   render() {

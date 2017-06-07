@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+
 import Root from './App/Root';
 // <Login />
 
@@ -22,7 +23,7 @@ class DontGetLost extends Component {
       <View style={styles.container}>
         <Root />
       </View>
-    );
+    )
   }
 }
 
