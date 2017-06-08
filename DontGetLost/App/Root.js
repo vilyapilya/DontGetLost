@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Provider } from 'react-redux';
 
 import {
   Router,
@@ -9,16 +10,18 @@ import {
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  Navigator
 } from 'react-native';
 
+import SignUp from './components/login/signup';
 import Login from './components/login/login';
 
 class Root extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Login />
+        <SignUp />
       </View>
     );
   }
