@@ -12,13 +12,21 @@ export const getGroups = () => (
   })
 );
 
-export const createGroup = group => {
-  return $.ajax({
-    method: 'POST',
-    url: 'api/groups',
-    data: group,
-  });
-};
+export const createGroup = (group) => (
+  fetch(
+    'http://10.0.2.2:3000/api/groups',
+    {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        group: group
+      })
+    }
+  )
+);
 
 
 export const deleteGroup = id => (

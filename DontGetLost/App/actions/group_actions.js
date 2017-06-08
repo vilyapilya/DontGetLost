@@ -1,4 +1,5 @@
 import * as GroupAPIUtil from '../util/group_api_util';
+import { receiveErrors } from './error_actions';
 
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_ALL_GROUPS = 'RECEIVE_ALL_GROUPS';
@@ -53,7 +54,8 @@ export const createGroup = group => dispatch => {
   return (
     GroupAPIUtil
       .createGroup(group)
-      .then(group => dispatch(receiveGroup))
+      .then(group => dispatch(receiveGroup(group)),
+      errors => dispatch(receiveErrors(errors.responseJSON)))
   );
 };
 
