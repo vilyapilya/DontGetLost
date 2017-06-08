@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 
 import Root from './Root';
-import { register } from './actions/session_actions';
+import { register, login, logout } from './actions/session_actions';
 import configureStore from './store/store';
 const store = configureStore();
 window.store = store;
 
 window.register = register;
+window.login = login;
+window.logout = logout;
 class App extends Component {
 
   async getToken() {

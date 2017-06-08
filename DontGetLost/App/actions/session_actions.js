@@ -27,3 +27,27 @@ export const register = user => dispatch => {
         }
       );
 };
+
+export const login = user => dispatch => {
+  return LoginAPIUtil.login(user)
+      .then(
+        (resp) => {
+          if (resp.ok) {
+            resp.json()
+              .then((currentUser) => {
+                dispatch(receiveCurrentUser(currentUser));
+                // AsyncStorage.setItem('sessionToken', obj.sessionToken);
+              });
+          } else {
+            resp.json()
+              .then((err) => {
+                dispatch(receiveErrors(err));
+              });
+          }
+        }
+      );
+};
+
+export const logout = () => dispatch => (
+  LoginAPIUtil.logout().then(user => dispatch(receiveCurrentUser(null)))
+);
