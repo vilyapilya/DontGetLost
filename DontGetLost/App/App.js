@@ -10,7 +10,7 @@ import {register, getUser} from './util/login_api_util';
 >>>>>>> 33e53127a3bb56e312ac91399fb5751bb78a6a00
 const store = configureStore();
 window.store = store;
-window.state = store.getState();
+
 window.register = register;
 <<<<<<< HEAD
 window.getUser = getUser;
