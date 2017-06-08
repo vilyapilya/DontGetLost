@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :invitations, only: [:create, :destroy]
   end
 
+
+
 end
