@@ -3,9 +3,9 @@ import { AsyncStorage } from 'react-native';
 import { receiveErrors } from './error_actions';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 
-const receiveCurrentUser = user => ({
+const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
-  user
+  currentUser
 });
 
 export const register = user => dispatch => {
@@ -14,8 +14,8 @@ export const register = user => dispatch => {
         (resp) => {
           if (resp.ok) {
             resp.json()
-              .then((obj) => {
-                dispatch(receiveCurrentUser(obj));
+              .then((currentUser) => {
+                dispatch(receiveCurrentUser(currentUser));
                 // AsyncStorage.setItem('sessionToken', obj.sessionToken);
               });
           } else {

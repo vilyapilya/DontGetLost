@@ -6,7 +6,7 @@ import { register } from './actions/session_actions';
 import configureStore from './store/store';
 const store = configureStore();
 window.store = store;
-window.state = store.getState();
+
 window.register = register;
 class App extends Component {
 
