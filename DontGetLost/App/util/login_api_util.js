@@ -1,6 +1,8 @@
-export const register = (user) => (
-  fetch(
-    'http://localhost:3000/api/users',
+
+
+export async function register (user) {
+  return await fetch(
+    'http://10.0.2.2:3000/api/users',
     {
       method: 'POST',
       headers: {
@@ -12,7 +14,7 @@ export const register = (user) => (
       })
     }
   )
-);
+};
 
 export const login = (user) => (
   fetch(
