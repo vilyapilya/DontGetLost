@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
 
 
+  get 'verify' => 'sessions#verify_session_token'
+
 
 end
