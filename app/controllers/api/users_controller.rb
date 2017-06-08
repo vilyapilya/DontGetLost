@@ -1,6 +1,12 @@
 class Api::UsersController < ApplicationController
 
+  def index
+    debugger
+    render json: ['hi']
+  end
+
   def create
+    debugger;
     @user = User.new(user_params)
 
     if @user.save
