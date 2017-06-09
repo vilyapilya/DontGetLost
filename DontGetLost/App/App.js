@@ -3,6 +3,14 @@ import {Provider} from 'react-redux';
 
 import Root from './Root';
 import { register, login, logout } from './actions/session_actions';
+
+// import {
+//   getInvitations,
+//   showInvitation,
+//   makeInvitation,
+//   deleteInvitation
+// } from './util/invitation_api_util.js';
+
 import {
   createGroup,
   requestSingleGroup,
@@ -15,6 +23,11 @@ import configureStore from './store/store';
 
 const store = configureStore();
 window.store = store;
+
+// window.getInvitations = getInvitations;
+// window.showInvitation = showInvitation;
+// window.makeInvitation = makeInvitation;
+// window.deleteInvitation = deleteInvitation;
 
 window.deleteGroup = deleteGroup;
 window.requestSingleGroup = requestSingleGroup;
