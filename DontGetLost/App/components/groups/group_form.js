@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { View, Text, ScrollView, StyleSheet, TouchableHighlight } from 'react-native';
+import { View, Text, ScrollView, TextInput, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-export default class GroupDetail extends Component {
+export default class GroupForm extends Component {
   constructor() {
     super();
 
@@ -16,7 +16,7 @@ export default class GroupDetail extends Component {
   handleSubmit() {
     const group = this.state;
     this.props.createGroup(group);
-    
+
   }
 
   render() {

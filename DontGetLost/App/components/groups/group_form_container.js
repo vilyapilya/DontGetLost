@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { createGroup } from '../../actions/groups_actions';
+import { createGroup } from '../../actions/group_actions';
 
-import GroupForm from './login';
+import GroupForm from './group_form';
 
 const mapDispatchToProps = (dispatch) => ({
   createGroup: (group) => dispatch(createGroup(group))
