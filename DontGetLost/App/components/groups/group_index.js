@@ -8,7 +8,7 @@ class GroupIndex extends Component{
   }
 
   componentDidMount() {
-    this.props.requestAllPosts();
+    this.props.requestAllGroups();
   }
 
   render() {

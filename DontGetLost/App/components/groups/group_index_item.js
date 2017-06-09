@@ -7,7 +7,6 @@ export default class GroupIndexItem extends Component {
     return (
       <View>
         <Button
-          onPress={Actions.Group`${this.props.group.id}`}
           title={this.props.group.group_name}
           color="#841584"
         >
@@ -16,3 +15,5 @@ export default class GroupIndexItem extends Component {
     );
   }
 }
+
+//onPress={Actions.Group`${this.props.group.id}`}
