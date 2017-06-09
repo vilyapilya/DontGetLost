@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 import SignUpContainer from './components/login/signup_container';
-import Login from './components/login/login';
+import LoginContainer from './components/login/login_container';
 
 class Root extends Component {
   render() {
