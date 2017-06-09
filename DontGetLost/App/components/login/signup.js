@@ -6,74 +6,37 @@ class SignUp extends Component{
     super(); {
 
       this.state = {
-        name: "",
         username: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-        errors: []
+        password: ""
       }
     }
   }
 
-  async onRegisterPress() {
-    // fetch( 'http://localhost:3000/api/users, {'
-    try {
-      let response = await fetch( 'https://localhost:3000/api/users', {
-        method: 'POST',
-        headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          user: {
-            name: this.state.name,
-            // username: this.state.username,
-            email: this.state.email,
-            password: this.state.password,
-            password_confirmation: this.state.password_confirmation
-          }
-        })
-
-      });
-
-      let res = await response.text();
-      if(response.status >= 200 && response.status < 300) {
-        console.log("session_token: " + res)
-      } else {
-        let errors = res
-        throw errors;
-      }
-
-    } catch(errors) {
-      console.log(errors);
-      let formErrors = JSON.parse(errors);
-      let errorsArray = [];
-      for(let key in formErrors) {
-        if(formErrors[key].length > 1) {
-          formErrors[key].map(error => errorsArray.push(`${key} ${error}`))
-        } else {
-          errorsArray.push(`${key} ${formErrors[key]}`)
-        }
-      }
-      this.setState({errors: errorsArray})
-    }
+  onRegisterPress() {
+    const user = this.state;
+    this.props.register(user);
   }
 
+  errors() {
+    return (
+      <View>
+      {this.props.errors.map((error, i) => <Text key={i}>{error}</Text>)}
+      </View>
+    );
+  }
 
   // <Text>{this.state.email}</Text>
+  // <TextInput onChangeText={(val) => this.setState({password_confirmation:val})} placeholder="Password Confirmation" secureTextEntry={true}/>
   render() {
     return (
       <View style={{backgroundColor: 'pink', flex: 1}}>
-        <Text>Apple Sucks</Text>
-        <TextInput onChangeText={(val) => this.setState({name:val})} placeholder="Username" />
+        <Text>SignUp</Text>
+        <TextInput onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
         <TextInput onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
-        <TextInput onChangeText={(val) => this.setState({password_confirmation:val})} placeholder="Password Confirmation" secureTextEntry={true}/>
-        <TextInput onChangeText={(val) => this.setState({email:val})} placeholder="Email" />
         <TouchableHighlight onPress={this.onRegisterPress.bind(this)}>
           <Text>Reg</Text>
         </TouchableHighlight>
-        <Errors errors={this.state.errors} />
+        {this.errors()}
       </View>
 
     );
@@ -81,12 +44,5 @@ class SignUp extends Component{
   }
 }
 
-const Errors = (props) => {
-  return (
-    <View>
-    {props.errors.map((error, i) => <Text key={i}>{error}</Text>)}
-    </View>
-  );
-}
 
 export default SignUp;

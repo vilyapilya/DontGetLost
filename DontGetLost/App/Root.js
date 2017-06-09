@@ -14,14 +14,14 @@ import {
   Navigator
 } from 'react-native';
 
-import SignUp from './components/login/signup';
+import SignUpContainer from './components/login/signup_container';
 import Login from './components/login/login';
 
 class Root extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SignUp />
+        <SignUpContainer />
       </View>
     );
   }
