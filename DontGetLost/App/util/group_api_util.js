@@ -1,37 +1,70 @@
-export const getGroup = id => (
-  $.ajax({
-    method: 'GET',
-    url: `api/groups/${id}`
-  })
+export const getGroup = (id) => (
+  fetch(
+    `http://10.0.2.2:3000/api/groups/${id}`,
+    {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }
+  ).then((response) => response.json())
 );
 
 export const getGroups = () => (
-  $.ajax({
-    method: 'GET',
-    url: 'api/groups'
-  })
+  fetch(
+    'http://10.0.2.2:3000/api/groups',
+    {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }
+  ).then((response) => response.json())
 );
 
-export const createGroup = group => {
-  return $.ajax({
-    method: 'POST',
-    url: 'api/groups',
-    data: group,
-  });
-};
-
-
-export const deleteGroup = id => (
-  $.ajax({
-    method: 'DELETE',
-    url: `api/groups/${id}`
-  })
+export const createGroup = (group) => (
+  fetch(
+    'http://10.0.2.2:3000/api/groups',
+    {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        group: group
+      })
+    }
+  ).then((response) => response.json())
 );
 
-export const updateGroup = group => {
-  return $.ajax({
-    method: 'PATCH',
-    url: `api/groups/${group.id}`,
-    data: group
-  });
-};
+export const deleteGroup = (id) => (
+  fetch(
+    `http://10.0.2.2:3000/api/groups/${id}`,
+    {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }
+  ).then((response) => response.json())
+);
+
+export const updateGroup = (group) => (
+  fetch(
+    `http://10.0.2.2:3000/api/groups/${group.id}`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        group: group
+      })
+    }
+  ).then((response) => response.json())
+);
