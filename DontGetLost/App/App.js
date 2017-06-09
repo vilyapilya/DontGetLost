@@ -3,12 +3,24 @@ import {Provider} from 'react-redux';
 
 import Root from './Root';
 import { register, login, logout } from './actions/session_actions';
-import { createGroup } from './actions/group_actions';
+import {
+  createGroup,
+  requestSingleGroup,
+  requestAllGroups,
+  deleteGroup,
+  updateGroup
+ } from './actions/group_actions';
+
 import configureStore from './store/store';
 const store = configureStore();
 window.store = store;
+window.deleteGroup = deleteGroup;
+window.requestSingleGroup = requestSingleGroup;
+window.requestAllGroups = requestAllGroups;
 window.createGroup = createGroup;
+window.updateGroup = updateGroup;
 window.register = register;
+
 window.login = login;
 window.logout = logout;
 class App extends Component {

@@ -46,7 +46,7 @@ export const deleteGroup = id => dispatch => {
   return (
     GroupAPIUtil
       .deleteGroup(id)
-      .then(group => dispatch(removeGroup))
+      .then(group => dispatch(removeGroup(group)))
   );
 };
 
@@ -63,6 +63,6 @@ export const updateGroup = group => dispatch => {
   return (
     GroupAPIUtil
       .updateGroup(group)
-      .then(group => dispatch(receiveGroup))
+      .then(group => dispatch(receiveGroup(group)))
   );
 };
