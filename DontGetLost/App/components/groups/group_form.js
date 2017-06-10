@@ -16,7 +16,7 @@ export default class GroupForm extends Component {
   handleSubmit() {
     const group = this.state;
     this.props.createGroup(group);
-
+    console.log("hi");
   }
 
   render() {
@@ -24,7 +24,10 @@ export default class GroupForm extends Component {
       <View style={{backgroundColor: 'blue', flex: 1}}>
         <Text>Group Name</Text>
         <TextInput onChangeText={(val) => this.setState({group_name: val})} placeholder="Group Name" />
-        <TouchableHighlight onPress={this.handleSubmit}>
+        <TouchableHighlight
+          underlayColor='#FFFFFF'
+          activeOpacity={0.5}
+          onPress={this.handleSubmit}>
           <Text>Create Group</Text>
         </TouchableHighlight>
       </View>

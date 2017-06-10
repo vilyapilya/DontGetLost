@@ -69,9 +69,9 @@ class App extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   this.getToken();
-  // }
+  componentWillMount() {
+    this.getToken();
+  }
 
   render() {
     return (
