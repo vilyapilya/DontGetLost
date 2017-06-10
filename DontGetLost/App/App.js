@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
+import { Router } from 'react-native-router-flux';
 
 import Root from './Root';
 import { register, login, logout } from './actions/session_actions';
@@ -63,7 +64,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Root />
+          <Root />
       </Provider>
     );
   }
