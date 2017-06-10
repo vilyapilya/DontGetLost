@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux';
+import { Scene } from 'react-native-router-flux';
 
 import {
   Router,
@@ -23,6 +24,7 @@ class Root extends Component {
   render() {
     return (
       <View style={styles.container}>
+
         <GroupIndexContainer />
       </View>
     );

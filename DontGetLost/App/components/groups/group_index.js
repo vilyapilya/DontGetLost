@@ -17,13 +17,32 @@ class GroupIndex extends Component{
     } else {
       return (
         <View>
-          <ScrollView>
-            {this.props.groups.map(group => <GroupIndexItem group={group} key={group.id}/>)}
+          <Text>Groups!</Text>
+          <ScrollView contentContainerStyle={styles.contentContainer}>
+            {this.props.groups.map(group => <GroupIndexItem style={styles.button} group={group} key={group.id}/>)}
           </ScrollView>
         </View>
       );
     }
   }
 }
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#74B530',
+    width: 200,
+  },
+  contentContainer: {
+    backgroundColor: '#E1D7D8',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    flexDirection: 'column'
+  }
+
+});
 
 export default GroupIndex;
