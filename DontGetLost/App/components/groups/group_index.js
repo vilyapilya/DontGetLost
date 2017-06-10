@@ -16,9 +16,9 @@ class GroupIndex extends Component{
       return null;
     } else {
       return (
-        <View>
-          <Text>Groups!</Text>
+        <View style={styles.scrollContainer}>
           <ScrollView contentContainerStyle={styles.contentContainer}>
+            <Text>Groups!</Text>
             {this.props.groups.map(group => <GroupIndexItem style={styles.button} group={group} key={group.id}/>)}
           </ScrollView>
         </View>
@@ -40,7 +40,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
-    flexDirection: 'column'
+    flexDirection: 'column',
+  },
+  scrollContainer: {
+    flex:1
   }
 
 });

@@ -33,10 +33,9 @@ class Root extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: .5,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: 'red',
+    position: 'absolute', top: 0, bottom: 0, left: 0, right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

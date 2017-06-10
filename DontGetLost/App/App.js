@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
 import { Router } from 'react-native-router-flux';
+import { AsyncStorage } from 'react-native';
 
 import Root from './Root';
 import { register, login, logout } from './actions/session_actions';
@@ -28,10 +29,16 @@ window.login = login;
 window.logout = logout;
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.getToken = this.getToken.bind(this);
+    this.verifyToken = this.verifyToken.bind(this);
+  }
 
   async getToken() {
     try {
-      let sessionToken = await this.props.storage.getItem('sessionToken');
+      let sessionToken = await AsyncStorage.getItem('sessionToken');
       if (!sessionToken) {
         console.log("Token not set");
       } else {
@@ -45,12 +52,13 @@ class App extends Component {
   async verifyToken(token) {
     const sessionToken = token;
     try {
-      let response = await fetch('http://localhost:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
+      let response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
       let res = await response.text();
       if (response.status >= 200 && response.status < 300) {
         //Verified token means user is logged in so we redirect them home.
         console.log('user still logged in');
         Actions.categoriesIndex();
+        //should be our actual home page
       } else {
         //Handle error
         const error = res;
@@ -60,6 +68,10 @@ class App extends Component {
       console.log("error response: " + error);
     }
   }
+
+  // componentWillMount() {
+  //   this.getToken();
+  // }
 
   render() {
     return (
