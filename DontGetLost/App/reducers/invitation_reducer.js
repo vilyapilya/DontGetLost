@@ -7,6 +7,7 @@ import {
 
 import merge from 'lodash/merge';
 
+// const nullInvitations = {invitation_key: {invitation:{}};
 const nullInvitations = {};
 
 const invitationReducer = (state = nullInvitations, action) => {
@@ -22,6 +23,8 @@ const invitationReducer = (state = nullInvitations, action) => {
       return receviedInvitations;
       // i know this is redundant, lmaaaoooo. Cant decide on state now
     case DELETE_INVITATION:
+      console.log("DELETE");
+      console.log(action.invitation);
       const newStore = merge({}, state);
       delete newStore[action.invitation.id];
       return newStore;

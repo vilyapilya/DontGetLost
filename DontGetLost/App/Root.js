@@ -16,12 +16,13 @@ import {
 
 import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
+import InvitationsSentContainer from './components/invitations/invitations_sent_container';
 
 class Root extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SignUpContainer />
+        <InvitationsSentContainer />
       </View>
     );
   }
@@ -29,7 +30,7 @@ class Root extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: .5,
+    flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
     backgroundColor: 'red',

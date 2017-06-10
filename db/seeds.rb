@@ -1,7 +1,50 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+User1 = User.create(username: "person1", password: "password")
+User2 = User.create(username: "person2", password: "password")
+User3 = User.create(username: "person3", password: "password")
+User4 = User.create(username: "person4", password: "password")
+User5 = User.create(username: "person5", password: "password")
+User6 = User.create(username: "person6", password: "password")
+User7 = User.create(username: "person7", password: "password")
+
+Group.destroy_all
+Group1 = Group.create(group_name: "group1", creator_id: 1)
+Group2 = Group.create(group_name: "group2", creator_id: 2)
+Group3 = Group.create(group_name: "group3", creator_id: 3)
+Group4 = Group.create(group_name: "group4", creator_id: 4)
+Group5 = Group.create(group_name: "group5", creator_id: 5)
+Group6 = Group.create(group_name: "group6", creator_id: 6)
+Group7 = Group.create(group_name: "group7", creator_id: 7)
+
+GroupMember.destroy_all
+Member1 = GroupMember.create(user_id: 1, group_id: 2)
+Member2 = GroupMember.create(user_id: 1, group_id: 3)
+Member3 = GroupMember.create(user_id: 1, group_id: 4)
+Member4 = GroupMember.create(user_id: 2, group_id: 3)
+Member5 = GroupMember.create(user_id: 2, group_id: 4)
+Member6 = GroupMember.create(user_id: 2, group_id: 5)
+Member7 = GroupMember.create(user_id: 3, group_id: 1)
+Member8 = GroupMember.create(user_id: 3, group_id: 2)
+Member9 = GroupMember.create(user_id: 3, group_id: 4)
+Member10 = GroupMember.create(user_id: 4, group_id: 5)
+Member11 = GroupMember.create(user_id: 4, group_id: 6)
+Member12 = GroupMember.create(user_id: 4, group_id: 1)
+Member13 = GroupMember.create(user_id: 5, group_id: 1)
+Member14 = GroupMember.create(user_id: 5, group_id: 2)
+Member15 = GroupMember.create(user_id: 5, group_id: 6)
+Member16 = GroupMember.create(user_id: 6, group_id: 3)
+Member17 = GroupMember.create(user_id: 6, group_id: 4)
+Member18 = GroupMember.create(user_id: 6, group_id: 5)
+
+Invitation.destroy_all
+Invitation1 = Invitation.create(inviter_id: 1, group_id: 1, invitee_id: 2)
+Invitation2 = Invitation.create(inviter_id: 1, group_id: 1, invitee_id: 6)
+Invitation3 = Invitation.create(inviter_id: 2, group_id: 2, invitee_id: 1)
+Invitation4 = Invitation.create(inviter_id: 3, group_id: 3, invitee_id: 4)
+Invitation5 = Invitation.create(inviter_id: 4, group_id: 4, invitee_id: 3)
+Invitation6 = Invitation.create(inviter_id: 5, group_id: 5, invitee_id: 4)
+Invitation7 = Invitation.create(inviter_id: 6, group_id: 6, invitee_id: 1)
+Invitation8 = Invitation.create(inviter_id: 7, group_id: 7, invitee_id: 1)
+Invitation9 = Invitation.create(inviter_id: 7, group_id: 7, invitee_id: 2)
+Invitation10 = Invitation.create(inviter_id: 7, group_id: 7, invitee_id: 3)
+Invitation11 = Invitation.create(inviter_id: 7, group_id: 7, invitee_id: 4)

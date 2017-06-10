@@ -1,9 +1,10 @@
 class Api::InvitationsController < ApplicationController
-before_action :require_logged_in!
+# before_action :require_logged_in!
 
   def index
     if params[:sent] == "sent"
-      @invitations = current_user.invitations_sent
+      # @invitations = current_user.invitations_sent
+      @invitations = User.find(7).invitations_sent
       render "api/invitations/index"
     elsif params[:sent] == "received"
       @invitations = current_user.invitations_received

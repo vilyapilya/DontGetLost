@@ -1,31 +1,26 @@
-export const getMadeInvitations = (sent) => (
+export const getMadeInvitations = () => (
   fetch(
-    'http://10.0.2.2:3000/api/invitations',
+    'http://10.0.2.2:3000/api/invitations?sent=sent',
     {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        sent: sent
-      })
+      }
     }
+  // ).then(response => console.log(response.json()))
   ).then((response) => response.json())
 );
 
-export const getReceivedInvitations = (sent) => (
+export const getReceivedInvitations = () => (
   fetch(
-    'http://10.0.2.2:3000/api/invitations',
+    'http://10.0.2.2:3000/api/invitations?sent=received',
     {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        sent: sent
-      })
+      }
     }
   ).then((response) => response.json())
 );
@@ -59,9 +54,9 @@ export const makeInvitation = (invitation) => (
   ).then((response) => response.json())
 );
 
-export const deleteSentInvitation = (invitation) => (
+export const deleteSentInvitation = (invitation_id) => (
   fetch(
-    `http://10.0.2.2:3000/api/invitations/${invitation.id}`,
+    `http://10.0.2.2:3000/api/invitations/${invitation_id}`,
     {
       method: 'DELETE',
       headers: {
@@ -69,16 +64,15 @@ export const deleteSentInvitation = (invitation) => (
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        invitation: invitation,
-        sent: sent
+        invitation_id: invitation_id,
       })
     }
   ).then((response) => response.json())
 );
 
-export const deleteReceivedInvitation = (invitation, sent) => (
+export const deleteReceivedInvitation = (invitation) => (
   fetch(
-    `http://10.0.2.2:3000/api/invitations/${invitation.id}`,
+    `http://10.0.2.2:3000/api/invitations/${invitation.id}?sent=sent`,
     {
       method: 'DELETE',
       headers: {
@@ -86,8 +80,7 @@ export const deleteReceivedInvitation = (invitation, sent) => (
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        invitation: invitation,
-        sent: sent
+        invitation: invitation
       })
     }
   ).then((response) => response.json())
