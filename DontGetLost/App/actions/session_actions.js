@@ -49,5 +49,10 @@ export const login = user => dispatch => {
 };
 
 export const logout = () => dispatch => (
-  LoginAPIUtil.logout().then(user => dispatch(receiveCurrentUser(null)))
+  LoginAPIUtil
+    .logout()
+    .then((user) => {
+      dispatch(receiveCurrentUser(null));
+      // AsyncStorage.removeItem('sessionToken');
+    })
 );

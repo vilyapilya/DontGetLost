@@ -8,6 +8,7 @@ export default class GroupIndexItem extends Component {
       <TouchableHighlight
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
+          onPress={console.log("hi")}
       >
         <View style={styles.buttonContainer}>
           <Text style={styles.button}>
@@ -19,6 +20,8 @@ export default class GroupIndexItem extends Component {
   }
 }
 
+//onPress={Actions.Group`${this.props.group.id}`}
+
 const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
@@ -27,7 +30,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 60,
     margin: 10,
-    borderRadius: 2,
+    borderRadius: 3,
     shadowColor: '#000000',
     shadowOpacity: 0.8,
     shadowRadius: 2,
