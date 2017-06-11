@@ -14,6 +14,7 @@ import {
   StyleSheet,
   Navigator
 } from 'react-native';
+import Scenes from './scenes';
 
 import Menu from './components/menu/menu';
 import SignUpContainer from './components/login/signup_container';
@@ -24,7 +25,7 @@ import GroupFormContainer from './components/groups/group_form_container';
 class Root extends Component {
   render() {
     return (
-        <Menu />
+        <Scenes />
 
     );
   }
