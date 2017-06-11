@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import { View, Button, Text, StyleSheet, TouchableHighlight } from 'react-native';
 
 export default class GroupIndexItem extends Component {
+
   render() {
     return (
     <View style={styles.row}>
@@ -14,16 +15,6 @@ export default class GroupIndexItem extends Component {
       >
         <Text style={styles.button}>
           {this.props.group.group_name}
-        </Text>
-      </TouchableHighlight>
-      <TouchableHighlight
-          underlayColor='#FFFFFF'
-          activeOpacity={0.5}
-          onPress={() => console.log("hi")}
-          style={styles.altContainer}
-      >
-        <Text style={styles.deleteButton}>
-          X
         </Text>
       </TouchableHighlight>
     </View>
@@ -41,7 +32,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#74B530',
-    width: 200,
+    width: 250,
     height: 60,
     margin: 10,
     borderRadius: 3,

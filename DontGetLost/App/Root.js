@@ -23,10 +23,8 @@ import GroupFormContainer from './components/groups/group_form_container';
 class Root extends Component {
   render() {
     return (
+        <GroupFormContainer />
 
-
-        <GroupIndexContainer />
-      
     );
   }
 }

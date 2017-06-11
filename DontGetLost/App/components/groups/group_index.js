@@ -30,6 +30,7 @@ class GroupIndex extends Component{
               <GroupIndexItem
                style={styles.button}
                group={group}
+               currentUser={this.props.currentUser}
                key={group.id}/>)}
           </ScrollView>
         </View>
