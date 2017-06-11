@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import { View, Text, ScrollView, TextInput, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { logout } from '../../actions/session_actions';
 
 export default class Menu extends Component {
+
+handleLogout() {
+  this.props.logout();
+  setTimeout(Actions.login, 1000);
+}
+
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -19,7 +26,7 @@ export default class Menu extends Component {
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
           style={styles.buttonContainer}
-          onPress={() => console.log("hi")}>
+          onPress={Actions.groupIndex}>
           <Text>My Groups</Text>
         </TouchableHighlight>
 
@@ -27,7 +34,7 @@ export default class Menu extends Component {
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
           style={styles.buttonContainer}
-          onPress={() => console.log("hi")}>
+          onPress={Actions.invitationsReceived}>
           <Text>Invitations Received</Text>
         </TouchableHighlight>
 
@@ -35,7 +42,7 @@ export default class Menu extends Component {
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
           style={styles.buttonContainer}
-          onPress={() => console.log("hi")}>
+          onPress={Actions.invitationsReceived}>
           <Text>Invitations Sent</Text>
         </TouchableHighlight>
 
@@ -43,7 +50,7 @@ export default class Menu extends Component {
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
           style={styles.buttonContainer}
-          onPress={() => console.log("hi")}>
+          onPress={this.handleLogout.bind(this)}>
           <Text>Logout!</Text>
         </TouchableHighlight>
 

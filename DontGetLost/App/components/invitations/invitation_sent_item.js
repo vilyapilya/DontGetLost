@@ -18,7 +18,7 @@ class InvitationSentItem extends Component {
       <View style={styles.container}>
         <Text>
           You invited: {this.props.invitation.invitee}{"\n"}
-          To Group: {this.props.invitation.invitee_id}
+          To Group: {this.props.invitation.group_name}
         </Text>
         <TouchableHighlight onPress={this.onDeleteInvitePress.bind(this)}>
           <Text>Delete Invite</Text>
