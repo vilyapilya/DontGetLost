@@ -21,7 +21,7 @@ const invitationReducer = (state = nullInvitations, action) => {
       return sentInvitations;
     case RECEIVE_ALL_RECEIVED_INVITATIONS:
       const receivedInvitations = action.invitations;
-      return receviedInvitations;
+      return receivedInvitations;
       // i know this is redundant, lmaaaoooo. Cant decide on state now
     // case DELETE_INVITATION:
     //   const newStore = merge({}, state);

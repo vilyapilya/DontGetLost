@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet } from 'react-native';
-import InvitationSentItem from './invitation_sent_item';
+import InvitationReceivedItem from './invitation_received_item';
 
-class InvitationsSent extends Component {
+class InvitationsReceived extends Component {
   constructor() {
     super(); {
 
@@ -10,14 +10,14 @@ class InvitationsSent extends Component {
   }
 
   componentDidMount() {
-    this.props.requestMadeInvitations();
+    this.props.requestReceivedInvitations();
   }
 
   invitations() {
     const invitations = this.props.invitations;
     if (Object.keys(invitations).length !== 0) {
       return Object.keys(invitations).map((key, idx) => {
-        return <InvitationSentItem key={idx} deleteSentInvitation = {this.props.deleteSentInvitation} invitation={invitations[key]} />
+        return <InvitationReceivedItem key={idx} deleteReceivedInvitation = {this.props.deleteReceivedInvitation} invitation={invitations[key]} />
       })
 
     }
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InvitationsSent;
+export default InvitationsReceived;

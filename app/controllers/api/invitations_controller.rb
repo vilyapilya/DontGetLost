@@ -3,11 +3,12 @@ class Api::InvitationsController < ApplicationController
 
   def index
     if params[:sent] == "sent"
-      # @invitations = current_user.invitations_sent
-      @invitations = User.find(7).invitations_sent
+      # @invitations = User.find(7).invitations_sent
+      @invitations = current_user.invitations_sent
       render "api/invitations/index"
     elsif params[:sent] == "received"
-      @invitations = current_user.invitations_received
+      @invitations = User.find(1).invitations_received
+      # @invitations = current_user.invitations_received
       render "api/invitations/index"
     else
       render json: ["Error finding invitations"]
@@ -44,11 +45,12 @@ class Api::InvitationsController < ApplicationController
     @invitation = Invitation.find(params[:id])
     if @invitation.destroy
       if params[:sent] == "sent"
-        @invitations = User.find(7).invitations_sent
-        # @invitations = current_user.invitations_sent
+        # @invitations = User.find(7).invitations_sent
+        @invitations = current_user.invitations_sent
         render "api/invitations/index"
       elsif params[:sent] == "received"
-        @invitations = current_user.invitations_sent
+        @invitations = User.find(1).invitations_received
+        # @invitations = current_user.invitations_received
         render "api/invitations/index"
       end
     else

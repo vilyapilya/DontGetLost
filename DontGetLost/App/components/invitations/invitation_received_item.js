@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet } from 'react-native';
 
-class InvitationItem extends Component {
+class InvitationReceivedItem extends Component {
   constructor() {
     super(); {
 
@@ -9,15 +9,17 @@ class InvitationItem extends Component {
   }
 
   onDeleteInvitePress(){
-    this.props.deleteSentInvitation(this.props.invitation.id)
+    this.props.deleteReceivedInvitation(this.props.invitation.id)
   }
+
+
 
   render() {
     return (
       <View style={styles.container}>
         <Text>
-          You invited: {this.props.invitation.invitee}{"\n"}
-          To Group: {this.props.invitation.invitee_id}
+          You where invited by: {this.props.invitation.inviter}{"\n"}
+          To Group: {this.props.invitation.group_name}
         </Text>
         <TouchableHighlight onPress={this.onDeleteInvitePress.bind(this)}>
           <Text>Delete Invite</Text>
@@ -37,4 +39,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InvitationItem;
+export default InvitationReceivedItem;

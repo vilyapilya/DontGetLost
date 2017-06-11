@@ -46,7 +46,7 @@ export const makeInvitation = (invitation) => dispatch => (
     .then(invitations => dispatch(receiveAllSentInvitations(invitations)))
 );
 
-export const deleteReceivedInvitation = (invitation_id) => dispatch (
+export const deleteReceivedInvitation = (invitation_id) => dispatch => (
   InvitationAPIUtil.deleteReceivedInvitation(invitation_id)
     .then(invitations => dispatch(receiveAllReceivedInvitations(invitations)))
 );
