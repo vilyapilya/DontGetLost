@@ -1,5 +1,11 @@
 import * as GroupAPIUtil from '../util/group_api_util';
+import * as MembershipAPIUtil from '../util/group_membership_util';
 import { receiveErrors } from './error_actions';
+
+// joinGroup leaveGroup
+
+export const JOIN_GROUP = 'JOIN_GROUP';
+export const LEAVE_GROUP = 'LEAVE_GROUP';
 
 export const RECEIVE_GROUP = 'RECEIVE_GROUP';
 export const RECEIVE_ALL_GROUPS = 'RECEIVE_ALL_GROUPS';
@@ -25,6 +31,16 @@ const removeGroup = group => {
     group
   };
 };
+
+export const joinGroup = group_id => dispatch => (
+  MembershipAPIUtil.joinGroup(group_id)
+    .then(data => dispatch(receiveGroup(data)))
+)
+
+export const leaveGroup = membership_id => dispatch => (
+  MembershipAPIUtil.leaveGroup(membership_id)
+    .then(data => dispatch(receiveAllGroups(data)))
+)
 
 export const requestSingleGroup = id => dispatch => {
   return (

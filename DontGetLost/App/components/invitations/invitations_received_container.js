@@ -8,6 +8,11 @@ import {
   deleteSentInvitation
  } from '../../actions/invitation_actions';
 
+ import {
+   joinGroup,
+   leaveGroup
+ } from '../../actions/group_actions';
+
 import InvitationsReceived from './invitations_received';
 
 const mapStateToProps = ({invitations, errors}) => {
@@ -20,10 +25,9 @@ const mapStateToProps = ({invitations, errors}) => {
 const mapDispatchToProps = (dispatch) => ({
   // requestSingleInvitation: (invitation) => dispatch(requestSingleInvitation(invitation)),
   requestReceivedInvitations: (invitations) => dispatch(requestReceivedInvitations(invitations)),
-  // requestMadeInvitations: () => dispatch(requestMadeInvitations()),
-  // makeInvitation: (invitation) => dispatch(makeInvitation(invitation)),
   deleteReceivedInvitation: (invitation_id) => dispatch(deleteReceivedInvitation(invitation_id)),
-  // deleteSentInvitation: (invitation_id) => dispatch(deleteSentInvitation(invitation_id)),
+  joinGroup: (group_id) => dispatch(joinGroup(group_id)),
+  // leaveGroup: (membership_id) => dispatch(leaveGroup(membership_id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(InvitationsReceived);
