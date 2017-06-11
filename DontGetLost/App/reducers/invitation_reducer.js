@@ -11,7 +11,6 @@ import merge from 'lodash/merge';
 const nullInvitations = {};
 
 const invitationReducer = (state = nullInvitations, action) => {
-  console.log(action);
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_INVITATION:

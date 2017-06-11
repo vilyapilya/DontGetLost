@@ -3,7 +3,8 @@ import { logout } from '../../actions/session_actions';
 
 import Menu from './menu';
 
-const mapDispatchToProps = (dispatch) => ({
+
+const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 

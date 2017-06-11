@@ -24,6 +24,7 @@ class Api::GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     if current_user.id == @group.creator_id
+      GroupMember.where(group_id: @group.id).destroy_all
       @group.destroy
       render :show
     end

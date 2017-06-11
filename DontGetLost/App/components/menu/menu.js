@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import { View, Text, ScrollView, TextInput, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { logout } from '../../actions/session_actions';
 
 
 
 export default class Menu extends Component {
 
-  handleLogout() {
-    console.log("hello");
-    this.props.logout();
-    Actions.login();
-  }
+handleLogout() {
+  this.props.logout();
+  setTimeout(Actions.login, 1000);
+}
 
   render() {
     return (
@@ -45,6 +45,7 @@ export default class Menu extends Component {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.invitationsSent}>
+
           <Text>Invitations Sent</Text>
         </TouchableHighlight>
 

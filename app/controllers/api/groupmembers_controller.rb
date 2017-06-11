@@ -1,10 +1,10 @@
-class Api::GroupMembersController < ApplicationController
+class Api::GroupmembersController < ApplicationController
   def create
     @group_member = GroupMember.new(groupmember_params)
     @group_member.user_id = current_user.id
     @group = Group.find(groupmember_params[:group_id])
 
-    if @group_member.save && @group
+    if @group && @group_member.save
       render "api/groups/show"
     else
       render json: ["Error when joining group"]
@@ -12,7 +12,7 @@ class Api::GroupMembersController < ApplicationController
   end
 
   def destroy
-    @group_member = GroupMember.find(groupmember_params[:group_id])
+    @group_member = GroupMember.find(params[:id])
     if @group_member.destroy
       render "api/groups/index"
     end

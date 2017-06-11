@@ -13,6 +13,7 @@ import GroupDetailContainer from './components/groups/group_detail_container';
 const Scenes = () => {
   return(
     <Router sceneStyle={{ backgroundColor: 'white' }}>
+
       <Scene
         key='login'
         component={LoginContainer}
@@ -41,10 +42,15 @@ const Scenes = () => {
         hideNavBar={false} />
 
       <Scene
+        key='menu'
+        component={MenuContainer}
+        title='Menu' />
+
+      <Scene
         key='groupIndex'
         component={GroupIndexContainer}
         title="My Groups"
-        hideNavBar={false} />
+        hideNavBar={false}/>
 
       <Scene
         key='groupForm'
@@ -55,7 +61,7 @@ const Scenes = () => {
       <Scene
         key='invitationsSent'
         component={InvitationsSentContainer}
-        title="Invitations Made"
+        title="Invitations Sent"
         hideNavBar={false} />
 
       <Scene
@@ -63,7 +69,6 @@ const Scenes = () => {
         component={InvitationsReceivedContainer}
         title="Invitations Received"
         hideNavBar={true} />
-
 
     </Router>
   );
