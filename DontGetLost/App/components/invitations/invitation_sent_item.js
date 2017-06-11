@@ -13,7 +13,6 @@ class InvitationSentItem extends Component {
   }
 
 
-
   render() {
     return (
       <View style={styles.container}>
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({
     flex: .2,
     // justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'pink',
   },
 });
 

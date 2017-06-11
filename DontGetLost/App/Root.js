@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Provider } from 'react-redux';
+import { Scene } from 'react-native-router-flux';
 
 import {
   Router,
@@ -13,29 +14,20 @@ import {
   StyleSheet,
   Navigator
 } from 'react-native';
-
-import SignUpContainer from './components/login/signup_container';
-import LoginContainer from './components/login/login_container';
-import InvitationsSentContainer from './components/invitations/invitations_sent_container';
-import InvitationsReceivedContainer from './components/invitations/invitations_received_container';
+import Scenes from './scenes';
 
 class Root extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <InvitationsReceivedContainer />
-      </View>
+        <Scenes />
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: 'red',
-  },
+    flex: 1
+  }
 });
 
 export default Root;

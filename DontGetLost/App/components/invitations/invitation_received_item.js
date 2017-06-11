@@ -12,6 +12,9 @@ class InvitationReceivedItem extends Component {
     this.props.deleteReceivedInvitation(this.props.invitation.id)
   }
 
+  onAcceptInvitePress(){
+    this.props.acceptReceivedInvitation(this.props.invitation.id)
+  }
 
 
   render() {
@@ -24,6 +27,9 @@ class InvitationReceivedItem extends Component {
         <TouchableHighlight onPress={this.onDeleteInvitePress.bind(this)}>
           <Text>Delete Invite</Text>
         </TouchableHighlight>
+        <TouchableHighlight onPress={this.onAcceptInvitePress.bind(this)}>
+          <Text>Accept Invite</Text>
+        </TouchableHighlight>
       </View>
 
     )
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
     flex: .2,
     // justifyContent: 'center',
     // alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'pink',
   },
 });
 
