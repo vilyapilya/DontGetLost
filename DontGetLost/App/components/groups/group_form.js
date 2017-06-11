@@ -16,7 +16,6 @@ export default class GroupForm extends Component {
   handleSubmit() {
     const group = this.state;
     this.props.createGroup(group);
-    console.log("hi");
   }
 
   render() {

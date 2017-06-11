@@ -17,7 +17,10 @@ class InvitationsReceived extends Component {
     const invitations = this.props.invitations;
     if (Object.keys(invitations).length !== 0) {
       return Object.keys(invitations).map((key, idx) => {
-        return <InvitationReceivedItem key={idx} deleteReceivedInvitation = {this.props.deleteReceivedInvitation} invitation={invitations[key]} />
+        return <InvitationReceivedItem key={idx}
+          deleteReceivedInvitation = {this.props.deleteReceivedInvitation}
+          joinGroup = {this.props.joinGroup}
+          invitation={invitations[key]} />
       })
 
     }
