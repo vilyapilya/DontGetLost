@@ -1,8 +1,7 @@
 import merge from 'lodash/merge';
 
 import {
-  RECEIVE_GROUP,
-  REMOVE_GROUP
+  RECEIVE_GROUP
 }
 from '../actions/group_actions';
 

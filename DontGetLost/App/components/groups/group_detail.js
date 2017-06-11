@@ -8,9 +8,9 @@ export default class GroupDetail extends Component {
     super();
   }
 
-  // componentDidMount() {
-  //   this.props.requestAllMembers();
-  // }
+  componentDidMount() {
+    this.props.requestSingleGroup(this.props.groupDetail.id);
+  }
 
   render() {
     return (
