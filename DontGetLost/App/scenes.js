@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 
-import Menu from './components/menu/menu';
+import MenuContainer from './components/menu/menu_container';
 import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
@@ -16,6 +16,13 @@ const Scenes = () => {
         key='login'
         component={LoginContainer}
         title="Login"
+        hideNavBar={true}
+        initial={false} />
+
+      <Scene
+        key='menu'
+        component={MenuContainer}
+        title="Menu"
         hideNavBar={true}
         initial={true} />
 
@@ -42,6 +49,7 @@ const Scenes = () => {
           component={InvitationsReceivedContainer}
           title="Invitations Received"
           hideNavBar={true} />
+
 
     </Router>
   );
