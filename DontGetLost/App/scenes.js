@@ -6,6 +6,8 @@ import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
 import GroupFormContainer from './components/groups/group_form_container';
+import InvitationsSentContainer from './components/invitations/invitations_sent_container';
+import InvitationsReceivedContainer from './components/invitations/invitations_received_container';
 
 const Scenes = () => {
   return(
@@ -30,10 +32,16 @@ const Scenes = () => {
         hideNavBar={false} />
 
       <Scene
-        key='groupForm'
-        component={GroupFormContainer}
-        title="Create a Group!"
+        key='invitationsSent'
+        component={InvitationsSentContainer}
+        title="Invitations Made"
         hideNavBar={false} />
+
+        <Scene
+          key='invitationsReceived'
+          component={InvitationsReceivedContainer}
+          title="Invitations Received"
+          hideNavBar={true} />
 
     </Router>
   );
