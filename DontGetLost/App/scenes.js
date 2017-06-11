@@ -47,6 +47,12 @@ const Scenes = () => {
         hideNavBar={false} />
 
       <Scene
+        key='groupForm'
+        component={GroupFormContainer}
+        title="Group Form"
+        hideNavBar={true} />
+
+      <Scene
         key='invitationsSent'
         component={InvitationsSentContainer}
         title="Invitations Made"

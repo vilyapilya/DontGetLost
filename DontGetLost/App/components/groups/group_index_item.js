@@ -11,19 +11,17 @@ export default class GroupIndexItem extends Component {
 
 
   handlePress() {
-
-    Actions.groupDetail();
+    this.props.requestSingleGroup(this.props.group.id);
+    setTimeout( () => Actions.groupDetail(), 300);
   }
 
   render() {
-    const groupKey = `groupDetail-${this.props.group.id}`;
-
     return (
     <View style={styles.row}>
       <TouchableHighlight
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
-          onPress={Actions.groupDetail}
+          onPress={this.handlePress.bind(this)}
           style={styles.buttonContainer}
       >
         <Text style={styles.button}>

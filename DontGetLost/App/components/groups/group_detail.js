@@ -9,20 +9,15 @@ export default class GroupDetail extends Component {
   }
 
   componentDidMount() {
-    this.props.requestSingleGroup(this.props.groupDetail.id);
+    const id = this.props.groupDetail.id;
   }
 
   render() {
     return (
       <View>
-
-      <TouchableHighlight
-        underlayColor='#FFFFFF'
-        activeOpacity={0.5}
-        style={styles.buttonContainer}
-        onPress={Actions.groupIndex}>
-        <Text>Back to Groups</Text>
-      </TouchableHighlight>
+        <Text>
+          Hello
+        </Text>
     </View>
     );
   }
@@ -32,6 +27,14 @@ export default class GroupDetail extends Component {
 // <ScrollView>
 //   {this.props.members.map(member => member.user.username)}
 // </ScrollView>
+
+// <TouchableHighlight
+//   underlayColor='#FFFFFF'
+//   activeOpacity={0.5}
+//   style={styles.buttonContainer}
+//   onPress={Actions.groupIndex}>
+//   <Text>Back to Groups</Text>
+// </TouchableHighlight>
 
 const styles = StyleSheet.create({
   title: {
