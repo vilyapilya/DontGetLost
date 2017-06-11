@@ -6,6 +6,7 @@ import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
 import GroupFormContainer from './components/groups/group_form_container';
+import Locat from './components/Locat/locat';
 
 const Scenes = () => {
   return(
@@ -33,6 +34,11 @@ const Scenes = () => {
         key='groupForm'
         component={GroupFormContainer}
         title="Create a Group!"
+        hideNavBar={false} />
+      <Scene
+        key='locat'
+        component={Locat}
+        title="Go to Map"
         hideNavBar={false} />
 
     </Router>

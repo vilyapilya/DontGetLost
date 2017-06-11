@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage } from 'react-native';
-
+import { Scene, Router, Actions } from 'react-native-router-flux';
 const ACCESS_TOKEN = 'acccess_token';
 
 class Login extends Component{
@@ -36,6 +36,9 @@ class Login extends Component{
         <TextInput onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
         <TouchableHighlight onPress={this.onLoginPress.bind(this)}>
           <Text>Reg</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={Actions.locat}>
+          <Text>Go to map when loggedin</Text>
         </TouchableHighlight>
         {this.errors()}
       </View>

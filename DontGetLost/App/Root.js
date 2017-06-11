@@ -26,7 +26,6 @@ class Root extends Component {
   render() {
     return (
         <Scenes />
-
     );
   }
 }
