@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { View, Text, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, ActivityIndicator, TouchableHighlight } from 'react-native';
 import GroupIndexItem from './group_index_item';
+import { Actions } from 'react-native-router-flux';
 
 class GroupIndex extends Component{
   constructor() {
@@ -26,10 +27,22 @@ class GroupIndex extends Component{
         <View style={styles.scrollContainer}>
           <Text style={styles.title}>Groups!</Text>
           <ScrollView contentContainerStyle={styles.contentContainer}>
+            <TouchableHighlight
+                underlayColor='#FFFFFF'
+                activeOpacity={0.5}
+                onPress={Actions.groupForm}
+                style={styles.altButton}
+            >
+              <Text style={styles.button}>
+                Create a Group!
+              </Text>
+            </TouchableHighlight>
+
             {this.props.groups.map(group =>
               <GroupIndexItem
                style={styles.button}
                group={group}
+               requestSingleGroup={this.props.requestSingleGroup}
                currentUser={this.props.currentUser}
                key={group.id}/>)}
           </ScrollView>
@@ -44,13 +57,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontSize: 24,
 
-  },
-  buttonContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-    backgroundColor: '#74B530',
-    // width: 250,
   },
   contentContainer: {
     backgroundColor: 'white',
@@ -67,9 +73,71 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     height: 500
+  },
+  row: {
+    flexDirection: 'row'
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#74B530',
+    width: 250,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  altButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#d3a3e4',
+    width: 250,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  altContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#74B530',
+    width: 60,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  button: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16
+  },
+  deleteButton: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
+    width: 50,
   }
-
-
 });
 
 export default GroupIndex;

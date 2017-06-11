@@ -8,6 +8,7 @@ import GroupIndexContainer from './components/groups/group_index_container';
 import GroupFormContainer from './components/groups/group_form_container';
 import InvitationsSentContainer from './components/invitations/invitations_sent_container';
 import InvitationsReceivedContainer from './components/invitations/invitations_received_container';
+import GroupDetailContainer from './components/groups/group_detail_container';
 
 const Scenes = () => {
   return(
@@ -17,6 +18,20 @@ const Scenes = () => {
         key='login'
         component={LoginContainer}
         title="Login"
+        hideNavBar={true}
+        initial={false} />
+
+      <Scene
+        key='groupDetail'
+        component={GroupDetailContainer}
+        title="group detail"
+        hideNavBar={true}
+        initial={false} />
+
+      <Scene
+        key='menu'
+        component={MenuContainer}
+        title="Menu"
         hideNavBar={true}
         initial={true} />
 
@@ -36,6 +51,12 @@ const Scenes = () => {
         component={GroupIndexContainer}
         title="My Groups"
         hideNavBar={false}/>
+
+      <Scene
+        key='groupForm'
+        component={GroupFormContainer}
+        title="Group Form"
+        hideNavBar={true} />
 
       <Scene
         key='invitationsSent'
