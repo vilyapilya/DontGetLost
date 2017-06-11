@@ -3,6 +3,8 @@ import { View, Text, ScrollView, TextInput, StyleSheet, TouchableHighlight } fro
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions/session_actions';
 
+
+
 export default class Menu extends Component {
 
 handleLogout() {
@@ -42,7 +44,8 @@ handleLogout() {
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
           style={styles.buttonContainer}
-          onPress={Actions.invitationsReceived}>
+          onPress={Actions.invitationsSent}>
+
           <Text>Invitations Sent</Text>
         </TouchableHighlight>
 
