@@ -16,7 +16,7 @@ export const register = user => dispatch => {
             resp.json()
               .then((currentUser) => {
                 dispatch(receiveCurrentUser(currentUser));
-                // AsyncStorage.setItem('sessionToken', obj.sessionToken);
+                AsyncStorage.setItem('sessionToken', currentUser.session_token);
               });
           } else {
             resp.json()
@@ -36,7 +36,7 @@ export const login = user => dispatch => {
             resp.json()
               .then((currentUser) => {
                 dispatch(receiveCurrentUser(currentUser));
-                // AsyncStorage.setItem('sessionToken', obj.sessionToken);
+                AsyncStorage.setItem('sessionToken', currentUser.session_token);
               });
           } else {
             resp.json()
@@ -53,6 +53,6 @@ export const logout = () => dispatch => (
     .logout()
     .then((user) => {
       dispatch(receiveCurrentUser(null));
-      // AsyncStorage.removeItem('sessionToken');
+      AsyncStorage.removeItem('sessionToken');
     })
 );

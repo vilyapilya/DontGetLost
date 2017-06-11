@@ -23,19 +23,15 @@ import GroupFormContainer from './components/groups/group_form_container';
 class Root extends Component {
   render() {
     return (
-      <View style={styles.container}>
+        <GroupFormContainer />
 
-        <GroupIndexContainer />
-      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute', top: 0, bottom: 0, left: 0, right: 0,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 1,
   },
 });
 

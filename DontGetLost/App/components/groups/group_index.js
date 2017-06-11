@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
 import GroupIndexItem from './group_index_item';
 
 class GroupIndex extends Component{
@@ -13,13 +13,25 @@ class GroupIndex extends Component{
 
   render() {
     if (this.props.groups.length === 0) {
-      return null;
+      return (
+      <View style={styles.activityContainer}>
+        <ActivityIndicator
+                alignSelf={'center'}
+                justifyContent={'center'}
+                size={'large'} />
+      </View>
+      );
     } else {
       return (
         <View style={styles.scrollContainer}>
+          <Text style={styles.title}>Groups!</Text>
           <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Text>Groups!</Text>
-            {this.props.groups.map(group => <GroupIndexItem style={styles.button} group={group} key={group.id}/>)}
+            {this.props.groups.map(group =>
+              <GroupIndexItem
+               style={styles.button}
+               group={group}
+               currentUser={this.props.currentUser}
+               key={group.id}/>)}
           </ScrollView>
         </View>
       );
@@ -28,23 +40,35 @@ class GroupIndex extends Component{
 }
 
 const styles = StyleSheet.create({
+  title: {
+    alignSelf: 'center',
+    fontSize: 24,
+
+  },
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
     backgroundColor: '#74B530',
-    width: 200,
+    // width: 250,
   },
   contentContainer: {
-    backgroundColor: '#E1D7D8',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
     flexDirection: 'column',
+    // width: 250,
+  },
+  activityContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1
   },
   scrollContainer: {
-    flex:1
+    height: 500
   }
+
 
 });
 
