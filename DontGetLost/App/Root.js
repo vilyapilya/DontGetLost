@@ -15,6 +15,7 @@ import {
   Navigator
 } from 'react-native';
 
+import Menu from './components/menu/menu';
 import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
@@ -23,7 +24,7 @@ import GroupFormContainer from './components/groups/group_form_container';
 class Root extends Component {
   render() {
     return (
-        <GroupFormContainer />
+        <Menu />
 
     );
   }
