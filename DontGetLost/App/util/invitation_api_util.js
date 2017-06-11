@@ -56,32 +56,27 @@ export const makeInvitation = (invitation) => (
 
 export const deleteSentInvitation = (invitation_id) => (
   fetch(
-    `http://10.0.2.2:3000/api/invitations/${invitation_id}`,
+    `http://10.0.2.2:3000/api/invitations/${invitation_id}?sent=sent`,
     {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        invitation_id: invitation_id,
-      })
+      }
     }
   ).then((response) => response.json())
 );
 
-export const deleteReceivedInvitation = (invitation) => (
+export const deleteReceivedInvitation = (invitation_id) => (
   fetch(
-    `http://10.0.2.2:3000/api/invitations/${invitation.id}?sent=sent`,
+    `http://10.0.2.2:3000/api/invitations/${invitation_id}?sent=received`,
     {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        invitation: invitation
-      })
+      }
     }
+  // ).then(response => console.log(response.json()))
   ).then((response) => response.json())
 );

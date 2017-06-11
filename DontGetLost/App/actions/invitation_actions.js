@@ -6,15 +6,10 @@ export const RECEIVE_ALL_SENT_INVITATIONS = 'RECEIVE_ALL_SENT_INVITATIONS';
 export const RECEIVE_ALL_RECEIVED_INVITATIONS = 'RECEIVE_ALL_RECEIVED_INVITATIONS';
 export const DELETE_INVITATION = 'DELETE_INVITATION';
 
-const receiveInvitation = (invitation) => (
+const receiveInvitation = (invitation) => ({
   type: RECEIVE_INVITATION,
   invitation
-);
-
-// const receiveAllSentInvitations = invitations => (
-//   type: RECEIVE_ALL_SENT_INVITATIONS,
-//   invitations
-// );
+});
 
 const receiveAllSentInvitations = invitations => ({
     type: RECEIVE_ALL_SENT_INVITATIONS,
@@ -26,10 +21,10 @@ const receiveAllReceivedInvitations = invitations => ({
   invitations
 });
 
-const deleteInvitation = invitation => ({
-  type: DELETE_INVITATION,
-  invitation
-})
+// const deleteInvitation = invitation => ({
+//   type: DELETE_INVITATION,
+//   invitation
+// })
 
 export const requestSingleInvitation = invitation => dispatch => (
   InvitationAPIUtil.showInvitation(invitation)
@@ -51,12 +46,12 @@ export const makeInvitation = (invitation) => dispatch => (
     .then(invitations => dispatch(receiveAllSentInvitations(invitations)))
 );
 
-export const deleteReceivedInvitation = (invitation) => dispatch (
-  InvitationAPIUtil.deleteReceivedInvitation(invitation)
-    .then(invitations => dispatch(deleteInvitation(invitations)))
+export const deleteReceivedInvitation = (invitation_id) => dispatch (
+  InvitationAPIUtil.deleteReceivedInvitation(invitation_id)
+    .then(invitations => dispatch(receiveAllReceivedInvitations(invitations)))
 );
 
 export const deleteSentInvitation = (invitation_id) => dispatch => (
   InvitationAPIUtil.deleteSentInvitation(invitation_id)
-    .then(invitation => dispatch(deleteInvitation(invitation)))
+    .then(invitations => dispatch(receiveAllSentInvitations(invitations)))
 );

@@ -11,6 +11,7 @@ import merge from 'lodash/merge';
 const nullInvitations = {};
 
 const invitationReducer = (state = nullInvitations, action) => {
+  console.log(action);
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_INVITATION:
@@ -22,12 +23,10 @@ const invitationReducer = (state = nullInvitations, action) => {
       const receivedInvitations = action.invitations;
       return receviedInvitations;
       // i know this is redundant, lmaaaoooo. Cant decide on state now
-    case DELETE_INVITATION:
-      console.log("DELETE");
-      console.log(action.invitation);
-      const newStore = merge({}, state);
-      delete newStore[action.invitation.id];
-      return newStore;
+    // case DELETE_INVITATION:
+    //   const newStore = merge({}, state);
+    //   delete newStore[action.invitation.id];
+    //   return newStore;
     default:
       return state;
   }
