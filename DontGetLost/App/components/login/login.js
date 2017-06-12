@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
-import { View, Text, TextInput, TouchableHighlight, AsyncStorage } from 'react-native';
+import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height;
+const fullWidth = Dimensions.get('window').width;
 
 const ACCESS_TOKEN = 'acccess_token';
 
@@ -63,30 +68,111 @@ class Login extends Component{
 
   errors() {
     return (
+
       <View>
-      {this.props.errors.map((error, i) => <Text key={i}>{error}</Text>)}
+      {this.props.errors.map((error, i) => <Text style={styles.errors} key={i}>{error}</Text>)}
       </View>
     );
   }
 
   render() {
     return (
-      <View style={{backgroundColor: 'pink', flex: 1}}>
-        <Text>Login</Text>
-        <TextInput onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
-        <TextInput onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
-        <TouchableHighlight onPress={this.onLoginPress.bind(this)}>
-          <Text>Login</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={Actions.signup}>
-          <Text>New User</Text>
-        </TouchableHighlight>
+      <View style={{flex: 1, marginTop: 100}}>
+        <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
+        <TextInput style={styles.input} onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
         {this.errors()}
+        <View style={styles.footer}>
+        <TouchableHighlight
+          underlayColor='#FFFFFF'
+          activeOpacity={0.5}
+          style={styles.buttonContainer}
+          onPress={this.onLoginPress.bind(this)}>
+          <Text style={styles.button}>Sign In</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          underlayColor='#FFFFFF'
+          activeOpacity={0.5}
+          style={styles.altButton}
+          onPress={Actions.signup}>
+          <Text style={styles.button}>New User?</Text>
+        </TouchableHighlight>
+        </View>
       </View>
 
     );
 
   }
 }
+
+// <View style={{backgroundColor: 'pink', flex: 1}}>
+//   <Text>Login</Text>
+//   <TextInput onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
+//   <TextInput onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
+//   <TouchableHighlight onPress={this.onLoginPress.bind(this)}>
+//     <Text>Login</Text>
+//   </TouchableHighlight>
+//   <TouchableHighlight onPress={Actions.signup}>
+//     <Text>New User</Text>
+//   </TouchableHighlight>
+//   {this.errors()}
+// </View>
+
+const styles = StyleSheet.create({
+  title: {
+    alignSelf: 'center',
+    fontSize: 24,
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ADD8E6',
+    width: 200,
+    height: 40,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  altButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#A3A3A3',
+    width: 200,
+    height: 40,
+    marginTop: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  button: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16
+  },
+  input: {
+    fontSize: 20
+  },
+  footer: {
+    marginTop: 75,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  errors: {
+    color: 'red',
+    fontSize: 16
+  }
+});
 
 export default Login;
