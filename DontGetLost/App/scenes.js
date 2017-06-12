@@ -70,6 +70,7 @@ const Scenes = () => {
         component={InvitationsReceivedContainer}
         title="Invitations Received"
         hideNavBar={false} />
+
       <Scene
         key='locat'
         component={LocatContainer}
