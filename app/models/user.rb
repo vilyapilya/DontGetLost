@@ -9,6 +9,8 @@
 #  image_url       :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  latitude        :float
+#  longitude       :float
 #
 
 class User < ActiveRecord::Base

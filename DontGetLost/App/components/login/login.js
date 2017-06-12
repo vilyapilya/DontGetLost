@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+
+import { Scene, Router, Actions } from 'react-native-router-flux';
 
 const ACCESS_TOKEN = 'acccess_token';
 
@@ -25,7 +26,7 @@ class Login extends Component{
       try {
         let sessionToken = await AsyncStorage.getItem('sessionToken');
         if (!sessionToken) {
-          Action.login();
+          Actions.login();
         } else {
           this.verifyToken(sessionToken)
         }
@@ -40,10 +41,7 @@ class Login extends Component{
         let response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
         let res = await response.text();
         if (response.status >= 200 && response.status < 300) {
-          //Verified token means user is logged in so we redirect them home.
-          // console.log('user still logged in');
           Actions.menu();
-          //should be our actual home page
         } else {
           //Handle error
           const error = res;
@@ -58,7 +56,7 @@ class Login extends Component{
   onLoginPress() {
     const user = this.state;
     this.props.login(user);
-    setTimeout(this.getToken, 1000);
+    setTimeout(this.getToken, 1100);
   }
 
   errors() {
@@ -80,6 +78,9 @@ class Login extends Component{
         </TouchableHighlight>
         <TouchableHighlight onPress={Actions.signup}>
           <Text>New User</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={Actions.locat}>
+          <Text>Go to map when loggedin</Text>
         </TouchableHighlight>
         {this.errors()}
       </View>
