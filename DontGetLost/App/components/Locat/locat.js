@@ -23,6 +23,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 class Locat extends Component{
   constructor(props) {
     super(props);
+    this.currentUserId = this.props.currentUser.id;
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     // this.state = {
@@ -87,8 +88,6 @@ class Locat extends Component{
         longitudeDelta: mapLonDelta
       },
     });
-
-
   }
 
   componentDidMount() {
@@ -116,6 +115,7 @@ class Locat extends Component{
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
     );
 
+    this.props.requestSingleGroup(1);
   }
 
 
@@ -137,6 +137,7 @@ class Locat extends Component{
     });
   }
   getInitialState() {
+    console.log(this.state.groupDetail);
     return {
       mapCoordinate: new MapView.AnimatedRegion({
         latitude: LATITUDE,
@@ -163,9 +164,7 @@ class Locat extends Component{
 
 
   render() {
-    console.log("aaa");
-    console.log(this.state.markCoordinate.latitude);
-    console.log(this.state.mapCoordinate.latitude);
+    console.log(this.props.groupDetail);
     let lat = this.state.mapCoordinate.latitude;
     let lon = this.state.mapCoordinate.longitude;
     return (
