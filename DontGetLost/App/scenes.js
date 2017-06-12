@@ -39,7 +39,7 @@ const Scenes = () => {
         key='signup'
         component={SignUpContainer}
         title="Sign Up"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='menu'
