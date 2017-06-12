@@ -1,11 +1,10 @@
-# Don't Get Lost
+# Don't Get Lost (Flex Project Proposal)
+
+Tony Weng, Tu Ngo, Vilya Levitskiy, and Vincent Chan
 
 ## Background
 
-Inspired by Find Your Friends, Don't Get Lost is an Android App that lets you keep track of your friends- no matter how directionally challenged they might be. Don’t Get Lost is a mobile app that allows users to see their location on Google Maps as well as the location of others they need to connect with.
-
-
-It is built on a Rails backend with React Native as the frontend. Through the use of websockets, the user’s geolocation is continually updated and rendered on Google Maps.
+Inspired by Find Your Friends, Don't Get Lost is an Android App that lets you keep track of your friends- no matter how directionally challenged they might be. Don’t Get Lost is a mobile app that allows users to see their location on Google Maps as well as the location of others they need to connect with. It is built on a Rails backend with React Native as the frontend. Through the use of websockets, the user’s geolocation is continually updated and rendered on Google Maps.
 
 ## Functionality & MVPs
 
