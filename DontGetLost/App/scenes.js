@@ -6,14 +6,14 @@ import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
 import GroupFormContainer from './components/groups/group_form_container';
-<<<<<<< HEAD
+
 import Locat from './components/Locat/locat';
-=======
+
 import InvitationsSentContainer from './components/invitations/invitations_sent_container';
 import InvitationsReceivedContainer from './components/invitations/invitations_received_container';
 import GroupDetailContainer from './components/groups/group_detail_container';
 import InvitationFormContainer from './components/invitations/invitation_form_container';
->>>>>>> e09a06f6d4a77f74b59d54948c2b68e4178d3284
+
 
 const Scenes = () => {
   return(
