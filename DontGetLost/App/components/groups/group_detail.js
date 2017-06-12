@@ -8,20 +8,28 @@ export default class GroupDetail extends Component {
     super();
   }
 
-  componentDidMount() {
-    const id = this.props.groupDetail.id;
+  renderNames() {
+    console.log(this.props.groupDetail.members);
+    return (
+      this.props.groupDetail.members.map( (member, i) =>
+        <Text key={`member-${i}`}
+        style={styles.buttonContainer}
+        >member</Text>)
+    );
   }
 
   render() {
     return (
-      <View>
+
+      <View style={styles.namesContainer}>
         <TouchableHighlight
           onPress={Actions.invitationForm}
         />
-        <Text>
-          Hello
-        </Text>
-    </View>
+        <View style={styles.border}>
+        <Text style={styles.title}>Group Members</Text>
+        </View>
+        {this.renderNames()}
+      </View>
     );
   }
 
@@ -40,10 +48,6 @@ export default class GroupDetail extends Component {
 // </TouchableHighlight>
 
 const styles = StyleSheet.create({
-  title: {
-    alignSelf: 'center',
-    fontSize: 24,
-  },
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -52,12 +56,21 @@ const styles = StyleSheet.create({
     height: 60,
     margin: 10,
     borderRadius: 3,
-    shadowColor: '#000000',
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 2,
-      width: -2
-    },
+    textAlign: 'center',
+    textAlignVertical: "center"
   },
+  namesContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  title: {
+    alignSelf: 'center',
+    fontSize: 24,
+  },
+  border: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'black',
+    width: 200,
+  }
 });

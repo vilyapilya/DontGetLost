@@ -32,7 +32,7 @@ const Scenes = () => {
         key='groupDetail'
         component={GroupDetailContainer}
         title="group detail"
-        hideNavBar={true}
+        hideNavBar={false}
         initial={false} />
 
       <Scene
@@ -41,11 +41,6 @@ const Scenes = () => {
         title="Menu"
         hideNavBar={true}
         initial={false} />
-
-      <Scene
-        key='menu'
-        component={MenuContainer}
-        title='Menu' />
 
       <Scene
         key='groupIndex'
