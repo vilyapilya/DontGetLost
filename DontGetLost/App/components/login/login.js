@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage } from 'react-native';
-<<<<<<< HEAD
-import { Scene, Router, Actions } from 'react-native-router-flux';
-=======
-import { Actions } from 'react-native-router-flux';
 
->>>>>>> e09a06f6d4a77f74b59d54948c2b68e4178d3284
+import { Scene, Router, Actions } from 'react-native-router-flux';
+
 const ACCESS_TOKEN = 'acccess_token';
 
 class Login extends Component{
