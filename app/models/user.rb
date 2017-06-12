@@ -50,8 +50,8 @@ class User < ActiveRecord::Base
     foreign_key: :user_id
 
   has_many :groups,
-    source: :memberships,
-    through: :group
+    through: :memberships,
+    source: :group
 
 
   def self.find_by_credentials(username, password)
