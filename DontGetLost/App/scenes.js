@@ -1,16 +1,24 @@
 import React, {Component} from 'react';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 
-import Menu from './components/menu/menu';
+import MenuContainer from './components/menu/menu_container';
 import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
 import GroupFormContainer from './components/groups/group_form_container';
+<<<<<<< HEAD
 import Locat from './components/Locat/locat';
+=======
+import InvitationsSentContainer from './components/invitations/invitations_sent_container';
+import InvitationsReceivedContainer from './components/invitations/invitations_received_container';
+import GroupDetailContainer from './components/groups/group_detail_container';
+import InvitationFormContainer from './components/invitations/invitation_form_container';
+>>>>>>> e09a06f6d4a77f74b59d54948c2b68e4178d3284
 
 const Scenes = () => {
   return(
     <Router sceneStyle={{ backgroundColor: 'white' }}>
+
       <Scene
         key='login'
         component={LoginContainer}
@@ -25,21 +33,54 @@ const Scenes = () => {
         hideNavBar={false} />
 
       <Scene
+        key='groupDetail'
+        component={GroupDetailContainer}
+        title="group detail"
+        hideNavBar={false}
+        initial={false} />
+
+      <Scene
+        key='menu'
+        component={MenuContainer}
+        title="Menu"
+        hideNavBar={true}
+        initial={false} />
+
+      <Scene
         key='groupIndex'
         component={GroupIndexContainer}
         title="My Groups"
-        hideNavBar={false} />
+        hideNavBar={false}/>
 
       <Scene
         key='groupForm'
         component={GroupFormContainer}
-        title="Create a Group!"
+        title="Group Form"
+        hideNavBar={false} />
+
+      <Scene
+        key='invitationsSent'
+        component={InvitationsSentContainer}
+        title="Invitations Sent"
+        hideNavBar={false} />
+
+      <Scene
+        key='invitationsReceived'
+        component={InvitationsReceivedContainer}
+        title="Invitations Received"
         hideNavBar={false} />
       <Scene
         key='locat'
         component={Locat}
         title="Go to Map"
         hideNavBar={false} />
+
+      <Scene
+        key='invitationForm'
+        component={InvitationFormContainer}
+        title="group detail"
+        hideNavBar={true}
+        initial={false} />
 
     </Router>
   );

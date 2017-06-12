@@ -6,10 +6,10 @@ Rails.application.routes.draw do
     resources :groups, only: [:show, :index, :create, :destroy, :update]
     resources :invitations, only: [:index, :show, :create, :destroy]
     resources :groupmembers, only: [:create, :destroy]
+    get 'verify' => 'sessions#verify_session_token'
   end
 
 
-  get 'verify' => 'sessions#verify_session_token'
 
 
 end

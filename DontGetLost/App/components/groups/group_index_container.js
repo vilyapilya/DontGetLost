@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import GroupIndex from './group_index';
 import { selectAllGroups } from '../../reducers/selectors';
 import {
+  requestSingleGroup,
   requestAllGroups,
   deleteGroup
 }
@@ -14,6 +15,7 @@ const mapStateToProps = ( {groups, currentUser} ) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  requestSingleGroup: (id) => dispatch(requestSingleGroup(id)),
   requestAllGroups: () => dispatch(requestAllGroups()),
   deleteGroup: (id) => dispatch(deleteGroup(id))
 });

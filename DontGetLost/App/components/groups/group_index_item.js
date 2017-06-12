@@ -1,8 +1,19 @@
 import {Actions, Scene} from 'react-native-router-flux';
 import React, {Component} from 'react';
 import { View, Button, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import GroupDetailContainer from './group_detail_container';
 
 export default class GroupIndexItem extends Component {
+  constructor() {
+    super();
+
+  }
+
+
+  handlePress() {
+    this.props.requestSingleGroup(this.props.group.id);
+    setTimeout( () => Actions.groupDetail(), 300);
+  }
 
   render() {
     return (
@@ -10,7 +21,7 @@ export default class GroupIndexItem extends Component {
       <TouchableHighlight
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
-          onPress={() => console.log("hi")}
+          onPress={this.handlePress.bind(this)}
           style={styles.buttonContainer}
       >
         <Text style={styles.button}>

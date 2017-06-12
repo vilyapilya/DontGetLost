@@ -14,7 +14,7 @@ class Api::GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.creator_id = current_user.id
     if @group.save
-      GroupMember.new(group_id: @group.id, user_id: current_user.id)
+      GroupMember.create(group_id: @group.id, user_id: current_user.id)
       render :show
     else
       render json: @group.errors.full_messages, status: 401
@@ -24,6 +24,7 @@ class Api::GroupsController < ApplicationController
   def destroy
     @group = Group.find(params[:id])
     if current_user.id == @group.creator_id
+      GroupMember.where(group_id: @group.id).destroy_all
       @group.destroy
       render :show
     end

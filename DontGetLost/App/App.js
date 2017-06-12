@@ -5,6 +5,14 @@ import { AsyncStorage } from 'react-native';
 
 import Root from './Root';
 import { register, login, logout } from './actions/session_actions';
+
+// import {
+//   getInvitations,
+//   showInvitation,
+//   makeInvitation,
+//   deleteInvitation
+// } from './util/invitation_api_util.js';
+
 import {
   createGroup,
   requestSingleGroup,
@@ -17,6 +25,11 @@ import configureStore from './store/store';
 
 const store = configureStore();
 window.store = store;
+
+// window.getInvitations = getInvitations;
+// window.showInvitation = showInvitation;
+// window.makeInvitation = makeInvitation;
+// window.deleteInvitation = deleteInvitation;
 
 window.deleteGroup = deleteGroup;
 window.requestSingleGroup = requestSingleGroup;
@@ -40,12 +53,12 @@ class App extends Component {
     try {
       let sessionToken = await AsyncStorage.getItem('sessionToken');
       if (!sessionToken) {
-        console.log("Token not set");
+        Action.login();
       } else {
         this.verifyToken(sessionToken)
       }
     } catch (error) {
-      console.log("Error finding token");
+      // console.log("Error finding token");
     }
   }
 
@@ -56,8 +69,8 @@ class App extends Component {
       let res = await response.text();
       if (response.status >= 200 && response.status < 300) {
         //Verified token means user is logged in so we redirect them home.
-        console.log('user still logged in');
-        Actions.categoriesIndex();
+        // console.log('user still logged in');
+        Actions.menu();
         //should be our actual home page
       } else {
         //Handle error
@@ -65,13 +78,13 @@ class App extends Component {
         throw error;
       }
     } catch (error) {
-      console.log("error response: " + error);
+      // console.log("error response: " + error);
     }
   }
 
-  // componentWillMount() {
-  //   this.getToken();
-  // }
+  componentWillMount() {
+    this.getToken();
+  }
 
   render() {
     return (
