@@ -104,19 +104,6 @@ class Login extends Component{
   }
 }
 
-// <View style={{backgroundColor: 'pink', flex: 1}}>
-//   <Text>Login</Text>
-//   <TextInput onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
-//   <TextInput onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
-//   <TouchableHighlight onPress={this.onLoginPress.bind(this)}>
-//     <Text>Login</Text>
-//   </TouchableHighlight>
-//   <TouchableHighlight onPress={Actions.signup}>
-//     <Text>New User</Text>
-//   </TouchableHighlight>
-//   {this.errors()}
-// </View>
-
 const styles = StyleSheet.create({
   title: {
     alignSelf: 'center',
@@ -132,7 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     shadowColor: '#000000',
     shadowOpacity: 0.8,
-    
+
     shadowRadius: 2,
     shadowOffset: {
       height: 2,
