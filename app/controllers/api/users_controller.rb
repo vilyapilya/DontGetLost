@@ -1,5 +1,18 @@
 class Api::UsersController < ApplicationController
 
+  # def index
+  #   search = params[:search]
+  #   group_id = params[:group_id]
+  #   @all_users = []
+  #   users = User.where("LOWER(username) LIKE LOWER(?)", "%#{search}%")
+  #   users.each do |u|
+  #     @all_users << u.groups.where.not(group_id: group_id) && u.memberships.where.not(group_id: group_id)
+  #   end
+  #   @all_users
+  #   # debugger;
+  # end
+
+
   def create
     @user = User.new(user_params)
 
