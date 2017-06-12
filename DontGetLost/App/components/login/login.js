@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-<<<<<<< HEAD
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-=======
-import { View, Text, TextInput, TouchableHighlight, AsyncStorage } from 'react-native';
 
-import { Scene, Router, Actions } from 'react-native-router-flux';
->>>>>>> 396a504f2952c416873318ae5373a3d21e614085
 
 import Dimensions from 'Dimensions';
 
@@ -99,14 +94,8 @@ class Login extends Component{
           onPress={Actions.signup}>
           <Text style={styles.button}>New User?</Text>
         </TouchableHighlight>
-<<<<<<< HEAD
         </View>
-=======
-        <TouchableHighlight onPress={Actions.locat}>
-          <Text>Go to map when loggedin</Text>
-        </TouchableHighlight>
-        {this.errors()}
->>>>>>> 396a504f2952c416873318ae5373a3d21e614085
+
       </View>
 
     );
