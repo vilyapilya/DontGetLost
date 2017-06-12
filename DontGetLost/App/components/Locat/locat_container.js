@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GroupDetail from './group_detail';
+import Locat from './locat';
 
 
 const mapStateToProps = ( {group, currentUser} ) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = ( {group, currentUser} ) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  requestAllGroups: () => dispatch(requestAllGroups()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupDetail);
