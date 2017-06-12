@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="0.44.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/DontGetLost/node_modules/react-native/android/com/facebook/react/react-native/0.44.3/react-native-0.44.3-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/DontGetLost/node_modules/react-native/android/com/facebook/react/react-native/0.44.3/react-native-0.44.3-javadoc.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
