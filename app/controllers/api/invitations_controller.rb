@@ -34,8 +34,11 @@ class Api::InvitationsController < ApplicationController
 
   def create
     @invitation = Invitation.new(invitation_params)
+    @invitation.inviter_id = current_user.id
+    @invitation.invitee_id = User.find_by(username: invitation_params[:invitee_username]).id
     if @invitation.save
-      render "api/invitations/show"
+      @group = Group.find(invitation_params[:group_id])
+      render "api/groups/show"
     else
       render json: ["Error happened while rendering invitations"], status: 422
     end
@@ -79,6 +82,6 @@ class Api::InvitationsController < ApplicationController
   # end
 
   def invitations_params
-    params.require(:invitation).permit(:inviter_id, :invitee_id, :group_id)
+    params.require(:invitation).permit(:inviter_id, :invitee_id, :group_id, :invitee_username)
   end
 end

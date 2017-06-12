@@ -9,6 +9,7 @@ import GroupFormContainer from './components/groups/group_form_container';
 import InvitationsSentContainer from './components/invitations/invitations_sent_container';
 import InvitationsReceivedContainer from './components/invitations/invitations_received_container';
 import GroupDetailContainer from './components/groups/group_detail_container';
+import InvitationFormContainer from './components/invitations/invitation_form_container';
 
 const Scenes = () => {
   return(
@@ -19,7 +20,13 @@ const Scenes = () => {
         component={LoginContainer}
         title="Login"
         hideNavBar={true}
-        initial={false} />
+        initial={true} />
+
+      <Scene
+        key='signup'
+        component={SignUpContainer}
+        title="Sign Up"
+        hideNavBar={false} />
 
       <Scene
         key='groupDetail'
@@ -33,13 +40,7 @@ const Scenes = () => {
         component={MenuContainer}
         title="Menu"
         hideNavBar={true}
-        initial={true} />
-
-      <Scene
-        key='signup'
-        component={SignUpContainer}
-        title="Sign Up"
-        hideNavBar={false} />
+        initial={false} />
 
       <Scene
         key='menu'
@@ -56,7 +57,7 @@ const Scenes = () => {
         key='groupForm'
         component={GroupFormContainer}
         title="Group Form"
-        hideNavBar={true} />
+        hideNavBar={false} />
 
       <Scene
         key='invitationsSent'
@@ -68,7 +69,14 @@ const Scenes = () => {
         key='invitationsReceived'
         component={InvitationsReceivedContainer}
         title="Invitations Received"
-        hideNavBar={true} />
+        hideNavBar={false} />
+
+      <Scene
+        key='invitationForm'
+        component={InvitationFormContainer}
+        title="group detail"
+        hideNavBar={true}
+        initial={true} />
 
     </Router>
   );

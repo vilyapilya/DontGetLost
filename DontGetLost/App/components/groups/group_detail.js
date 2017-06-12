@@ -15,6 +15,9 @@ export default class GroupDetail extends Component {
   render() {
     return (
       <View>
+        <TouchableHighlight
+          onPress={Actions.invitationForm}
+        />
         <Text>
           Hello
         </Text>
