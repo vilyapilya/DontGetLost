@@ -1,7 +1,6 @@
 # Don't Get Lost
 
-[DontGetLost][link]
-[link]: https://dontgetlostdemositecomingsoon.com/#/
+[DontGetLost](https://dontgetlostdemositecomingsoon.com/#/)
 
 ## Background
 
