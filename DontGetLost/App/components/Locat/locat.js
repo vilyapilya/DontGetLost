@@ -102,7 +102,7 @@ class Locat extends Component{
           },
         });
 
-        this.updateMapPosition(this.currentUserId);
+        this.updateMapPosition();
 
         //this.animate(position.coords.latitude, position.coords.longitude);
 
@@ -114,7 +114,8 @@ class Locat extends Component{
       (error) => this.setState({markCoordinate: { error: error.message }}),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
     );
-    this.props.requestSingleGroup(this.currentUserId);
+
+    this.props.requestSingleGroup(1);
   }
 
 
@@ -136,6 +137,7 @@ class Locat extends Component{
     });
   }
   getInitialState() {
+    console.log(this.state.groupDetail);
     return {
       mapCoordinate: new MapView.AnimatedRegion({
         latitude: LATITUDE,
@@ -163,7 +165,6 @@ class Locat extends Component{
 
   render() {
     console.log(this.props.groupDetail);
-    console.log(this.props.currentUser.id);
     let lat = this.state.mapCoordinate.latitude;
     let lon = this.state.mapCoordinate.longitude;
     return (
