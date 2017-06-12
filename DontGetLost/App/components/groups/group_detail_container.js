@@ -7,7 +7,6 @@ import {
 }
 from '../../actions/group_actions';
 
-
 const mapStateToProps = ( {groupDetail, currentUser} ) => ({
   groupDetail: groupDetail,
   currentUser: currentUser

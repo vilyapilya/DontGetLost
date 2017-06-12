@@ -14,7 +14,7 @@ export default class GroupDetail extends Component {
       this.props.groupDetail.members.map( (member, i) =>
         <Text key={`member-${i}`}
         style={styles.buttonContainer}
-        >member</Text>)
+        >{member}</Text>)
     );
   }
 
@@ -23,7 +23,7 @@ export default class GroupDetail extends Component {
 
       <View style={styles.namesContainer}>
         <TouchableHighlight onPress={Actions.invitationForm}>
-          <Text>Invitation Someone</Text>
+          <Text>Invite Someone</Text>
         </TouchableHighlight>
         <View style={styles.border}>
         <Text style={styles.title}>Group Members</Text>

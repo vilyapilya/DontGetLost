@@ -6,10 +6,15 @@ import SignUpContainer from './components/login/signup_container';
 import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
 import GroupFormContainer from './components/groups/group_form_container';
+
+
+import LocatContainer from './components/Locat/locat_container';
+
 import InvitationsSentContainer from './components/invitations/invitations_sent_container';
 import InvitationsReceivedContainer from './components/invitations/invitations_received_container';
 import GroupDetailContainer from './components/groups/group_detail_container';
 import InvitationFormContainer from './components/invitations/invitation_form_container';
+
 
 const Scenes = () => {
   return(
@@ -69,6 +74,12 @@ const Scenes = () => {
         key='invitationsReceived'
         component={InvitationsReceivedContainer}
         title="Invitations Received"
+        hideNavBar={false} />
+
+      <Scene
+        key='locat'
+        component={LocatContainer}
+        title="Go to Map"
         hideNavBar={false} />
 
       <Scene

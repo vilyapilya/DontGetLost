@@ -3,6 +3,7 @@
 # Table name: invitations
 #
 #  id         :integer          not null, primary key
+#  invitee_id :integer          not null
 #  inviter_id :integer          not null
 #  group_id   :integer          not null
 #  created_at :datetime         not null

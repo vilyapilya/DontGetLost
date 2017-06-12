@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
+<<<<<<< HEAD
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+=======
+import { View, Text, TextInput, TouchableHighlight, AsyncStorage } from 'react-native';
+
+import { Scene, Router, Actions } from 'react-native-router-flux';
+>>>>>>> 396a504f2952c416873318ae5373a3d21e614085
 
 import Dimensions from 'Dimensions';
 
@@ -30,7 +36,7 @@ class Login extends Component{
       try {
         let sessionToken = await AsyncStorage.getItem('sessionToken');
         if (!sessionToken) {
-          Action.login();
+          Actions.login();
         } else {
           this.verifyToken(sessionToken)
         }
@@ -45,10 +51,7 @@ class Login extends Component{
         let response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
         let res = await response.text();
         if (response.status >= 200 && response.status < 300) {
-          //Verified token means user is logged in so we redirect them home.
-          // console.log('user still logged in');
           Actions.menu();
-          //should be our actual home page
         } else {
           //Handle error
           const error = res;
@@ -63,7 +66,7 @@ class Login extends Component{
   onLoginPress() {
     const user = this.state;
     this.props.login(user);
-    setTimeout(this.getToken, 1000);
+    setTimeout(this.getToken, 1100);
   }
 
   errors() {
@@ -96,7 +99,14 @@ class Login extends Component{
           onPress={Actions.signup}>
           <Text style={styles.button}>New User?</Text>
         </TouchableHighlight>
+<<<<<<< HEAD
         </View>
+=======
+        <TouchableHighlight onPress={Actions.locat}>
+          <Text>Go to map when loggedin</Text>
+        </TouchableHighlight>
+        {this.errors()}
+>>>>>>> 396a504f2952c416873318ae5373a3d21e614085
       </View>
 
     );
