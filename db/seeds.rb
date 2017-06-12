@@ -5,7 +5,7 @@ User3 = User.create(username: "person3", password: "password", latitude: 37.7868
 User4 = User.create(username: "person4", password: "password", latitude: 37.793671, longitude: -122.406400)
 User5 = User.create(username: "person5", password: "password", latitude: 37.784061, longitude: -122.407285)
 User6 = User.create(username: "person6", password: "password", latitude: 37.785110, longitude: -122.434146)
-User7 = User.create(username: "person7", password: "password", latitude: 37.805768, longitude: -122.414813)
+User7 = User.create(username: "person7", password: "password", latitude: 37.805768, longitude: -122.414812)
 
 Group.destroy_all
 Group1 = Group.create(group_name: "group1", creator_id: User1.id)
