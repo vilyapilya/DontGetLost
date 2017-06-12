@@ -1,5 +1,5 @@
 class Api::InvitationsController < ApplicationController
-# before_action :require_logged_in!
+before_action :require_logged_in!
 
   def index
     if params[:sent] == "sent"
@@ -15,17 +15,6 @@ class Api::InvitationsController < ApplicationController
     end
   end
 
-  # def sentindex
-  #   @invitations = current_user.invitations_sent
-  #   # @invitations = Invitation.all
-  #   render "api/invitations/index"
-  # end
-  #
-  # def receivedindex
-  #   @invitations = current_user.invitations_received
-  #   render "api/invitations/index"
-  # end
-
   def show
     @invitation = Invitation.find(params[:id])
     @members = @invitation.group.members
@@ -33,11 +22,13 @@ class Api::InvitationsController < ApplicationController
   end
 
   def create
-    @invitation = Invitation.new(invitation_params)
+    @invitation = Invitation.new()
+    @invitation.group_id = invitations_params[:group_id]
     @invitation.inviter_id = current_user.id
-    @invitation.invitee_id = User.find_by(username: invitation_params[:invitee_username]).id
+    @invitation.invitee_id = User.find_by(username: invitations_params[:invitee_username]).id
+
     if @invitation.save
-      @group = Group.find(invitation_params[:group_id])
+      @group = Group.find(invitations_params[:group_id])
       render "api/groups/show"
     else
       render json: ["Error happened while rendering invitations"], status: 422
@@ -60,26 +51,6 @@ class Api::InvitationsController < ApplicationController
       render json: ["Error happened while deleting invitation"], status: 422
     end
   end
-
-  # def sentdestroy
-  #   @invitation = Invitation.find(params[:id])
-  #   @invitations = current_user.invitations_sent
-  #   if @invitation.destroy
-  #     render "api/invitations/index"
-  #   else
-  #     render json: ["Error happened while deleting invitation"], status: 422
-  #   end
-  # end
-  #
-  # def receiveddestroy
-  #   @invitation = Invitation.find(params[:id])
-  #   @invitations = current_user.invitations_received
-  #   if @invitation.destroy
-  #     render "api/invitations/index"
-  #   else
-  #     render json: ["Error happened while deleting invitation"], status: 422
-  #   end
-  # end
 
   def invitations_params
     params.require(:invitation).permit(:inviter_id, :invitee_id, :group_id, :invitee_username)

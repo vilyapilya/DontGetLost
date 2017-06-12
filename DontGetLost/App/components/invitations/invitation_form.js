@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 class InvitationForm extends Component {
   constructor() {
@@ -15,7 +16,9 @@ class InvitationForm extends Component {
     const group_id = this.props.groupDetail.id;
 
     const invitation = {group_id: group_id, invitee_username: invitee_username}
+    this.setState.invitee = "";
     this.props.makeInvitation(invitation)
+    // setTimeout(Action.groupDetail, 1000)
   }
 
   render() {
@@ -27,6 +30,10 @@ class InvitationForm extends Component {
         />
         <TouchableHighlight onPress={this.handleSubmit.bind(this)}>
           <Text>Send Invite</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={Actions.groupDetail}>
+          <Text>Back</Text>
         </TouchableHighlight>
       </View>
     )

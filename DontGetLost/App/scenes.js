@@ -71,7 +71,7 @@ const Scenes = () => {
         component={InvitationFormContainer}
         title="group detail"
         hideNavBar={true}
-        initial={true} />
+        initial={false} />
 
     </Router>
   );
