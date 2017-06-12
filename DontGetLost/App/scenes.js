@@ -25,7 +25,7 @@ const Scenes = () => {
         key='groupDetail'
         component={GroupDetailContainer}
         title="group detail"
-        hideNavBar={true}
+        hideNavBar={false}
         initial={false} />
 
       <Scene
