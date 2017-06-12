@@ -25,8 +25,8 @@ class GroupIndex extends Component{
     } else {
       return (
         <View style={styles.scrollContainer}>
-          <Text style={styles.title}>Groups!</Text>
           <ScrollView contentContainerStyle={styles.contentContainer}>
+            <Text style={styles.title}>Groups!</Text>
             <TouchableHighlight
                 underlayColor='#FFFFFF'
                 activeOpacity={0.5}
