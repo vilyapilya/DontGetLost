@@ -42,10 +42,8 @@ class Locat extends Component{
         latitude: LATITUDE,
         longitude: LONGITUDE,
         error: null
-      },
+      }
     };
-
-
     this.onRegionChange = this.onRegionChange.bind(this);
     this.animate = this.animate.bind(this);
   }
@@ -55,62 +53,23 @@ class Locat extends Component{
     return (Math.floor(Math.random() * (intMax-intMin)) + intMin);
   }
 
-  updateMapPosition() {
-    if(!this.state.markCoordinate || !this.state.mapCoordinate) {
-      return 0;
-    }
-
-    let markLat = this.state.markCoordinate.latitude;
-    let markLon = this.state.markCoordinate.longitude;
-    let mapLat  = this.state.mapCoordinate.latitude;
-    let mapLon  = this.state.mapCoordinate.longitude;
-    let mapLatDelta = this.state.mapCoordinate.latitudeDelta;
-    let mapLonDelta = this.state.mapCoordinate.longitudeDelta;
-    let newMapLat = mapLat;
-    let newMapLon = mapLon;
-    let diffLat = markLat - mapLat;
-    let diffLon = markLon - mapLon;
-
-    if(Math.abs(diffLat) > (mapLatDelta/2)*0.5) {
-      newMapLat = markLat;
-    }
-
-    if(Math.abs(diffLon) > (mapLonDelta/2)*0.5) {
-      newMapLon = markLon;
-    }
-
-    this.setState({
-      mapCoordinate: {
-        latitude: newMapLat,
-        longitude: newMapLon,
-        latitudeDelta: mapLatDelta,
-        longitudeDelta: mapLonDelta
-      },
-    });
-
-
-  }
-
   componentDidMount() {
     this.watchId = navigator.geolocation.watchPosition(
       (position) => {
         console.log("watching");
         this.setState({
+          mapCoordinate: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.latitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA
+          },
           markCoordinate: {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
             error: null
-          },
+          }
         });
-
-        this.updateMapPosition();
-
-        //this.animate(position.coords.latitude, position.coords.longitude);
-
-
-        // console.log(this.state.mapCoordinate.longitudeDelta);
-        // console.log(this.state.mapCoordinate.latitudeDelta);
-
       },
       (error) => this.setState({markCoordinate: { error: error.message }}),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
@@ -153,12 +112,8 @@ class Locat extends Component{
   //   }});
   // }
 
-  animate(lat, lon){
-    const { markAnimRegion } = this.state;
-        markAnimRegion.timing({
-          latitude: lat,
-          longitude: lon,
-        }).start();
+  animate(){
+
   }
 
 
@@ -175,8 +130,8 @@ class Locat extends Component{
           region={{
             latitude: this.state.mapCoordinate.latitude,
             longitude: this.state.mapCoordinate.longitude,
-            latitudeDelta: this.state.mapCoordinate.latitudeDelta,
-            longitudeDelta: this.state.mapCoordinate.longitudeDelta
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA
           }}
           onRegionChange={this.onRegionChange}
         >
