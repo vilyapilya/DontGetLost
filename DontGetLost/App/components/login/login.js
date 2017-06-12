@@ -26,7 +26,7 @@ class Login extends Component{
       try {
         let sessionToken = await AsyncStorage.getItem('sessionToken');
         if (!sessionToken) {
-          Action.login();
+          Actions.login();
         } else {
           this.verifyToken(sessionToken)
         }

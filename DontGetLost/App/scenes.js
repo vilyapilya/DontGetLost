@@ -7,6 +7,7 @@ import LoginContainer from './components/login/login_container';
 import GroupIndexContainer from './components/groups/group_index_container';
 import GroupFormContainer from './components/groups/group_form_container';
 
+
 import LocatContainer from './components/Locat/locat_container';
 
 import InvitationsSentContainer from './components/invitations/invitations_sent_container';
