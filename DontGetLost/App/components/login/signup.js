@@ -24,7 +24,7 @@ async getToken() {
   try {
     let sessionToken = await AsyncStorage.getItem('sessionToken');
     if (!sessionToken) {
-      Action.signup();
+      Actions.signup();
     } else {
       this.verifyToken(sessionToken)
     }

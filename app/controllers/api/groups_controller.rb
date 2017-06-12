@@ -6,8 +6,8 @@ class Api::GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
-    # @groups = current_user.groups
+    # @groups = Group.all
+    @groups = current_user.groups
   end
 
   def create
