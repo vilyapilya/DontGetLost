@@ -58,6 +58,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+<<<<<<< HEAD
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane" />
+=======
+>>>>>>> 5683ba69b3c533a1aaea85f599d5b404d077803b
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -82,10 +89,13 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+>>>>>>> 5683ba69b3c533a1aaea85f599d5b404d077803b
     </panes>
   </component>
   <component name="PropertiesComponent">

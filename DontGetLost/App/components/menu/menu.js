@@ -22,7 +22,7 @@ handleLogout() {
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
           style={styles.buttonContainer}
-          onPress={() => console.log("hi")}>
+          onPress={Actions.locat}>
           <Text>Map</Text>
         </TouchableHighlight>
 
