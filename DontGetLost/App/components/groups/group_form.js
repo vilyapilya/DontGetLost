@@ -16,6 +16,7 @@ export default class GroupForm extends Component {
   handleSubmit() {
     const group = this.state;
     this.props.createGroup(group);
+    Actions.groupIndex();
   }
 
   render() {
@@ -26,12 +27,21 @@ export default class GroupForm extends Component {
           style={{width: 200}}
           onChangeText={(val) => this.setState({group_name: val})}
           placeholder="Group Name" />
+
         <TouchableHighlight
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={this.handleSubmit}>
-          <Text>Create Group!</Text>
+          <Text style={styles.button}>Create Group!</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+          underlayColor='#FFFFFF'
+          activeOpacity={0.5}
+          style={styles.altButton}
+          onPress={Actions.groupIndex}>
+          <Text style={styles.button}>Cancel</Text>
         </TouchableHighlight>
       </View>
     );
@@ -58,5 +68,27 @@ const styles = StyleSheet.create({
       height: 2,
       width: -2
     },
+  },
+  altButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#A3A3A3',
+    width: 200,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  button: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16
   },
 });

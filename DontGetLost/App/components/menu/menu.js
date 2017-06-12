@@ -15,7 +15,9 @@ handleLogout() {
   render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <View style={styles.border}>
         <Text style={{fontSize: 24}}>Main Menu</Text>
+        </View>
         <TouchableHighlight
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
@@ -83,4 +85,10 @@ const styles = StyleSheet.create({
       width: -2
     },
   },
+  border: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'black',
+    width: 200,
+    alignItems: 'center'
+  }
 });
