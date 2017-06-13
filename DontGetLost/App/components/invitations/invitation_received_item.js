@@ -21,28 +21,80 @@ class InvitationReceivedItem extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>
-          You where invited by: {this.props.invitation.inviter}{"\n"}
-          To Group: {this.props.invitation.group_name}
-        </Text>
-        <TouchableHighlight onPress={this.onDeleteInvitePress.bind(this)}>
-          <Text>Delete Invite</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={this.onAcceptInvitePress.bind(this)}>
-          <Text>Accept Invite</Text>
-        </TouchableHighlight>
+        <View style={{alignItems: 'flex-start', justifyContent: 'center',}}>
+          <Text>
+            You were invited by: {this.props.invitation.inviter}
+          </Text>
+
+          <Text>
+            To: {this.props.invitation.group_name}
+          </Text>
+        </View>
+
+          <TouchableHighlight
+            underlayColor='#FFFFFF'
+            activeOpacity={0.5}
+            style={styles.buttonContainer}
+            onPress={this.onDeleteInvitePress.bind(this)}>
+            <Text style={styles.button}>Reject</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight
+            underlayColor='#FFFFFF'
+            activeOpacity={0.5}
+            style={styles.altContainer}
+            onPress={this.onAcceptInvitePress.bind(this)}>
+            <Text style={styles.button}>Accept</Text>
+          </TouchableHighlight>
       </View>
 
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: .2,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: 'pink',
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    justifyContent: 'space-between'
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ff6961',
+    width: 75,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  altContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#74B530',
+    width: 75,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  button: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16
   },
 });
 

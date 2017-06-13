@@ -23,7 +23,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.locat}>
-          <Text>Map</Text>
+          <Text style={styles.textStyle}>Map</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -31,7 +31,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.groupIndex}>
-          <Text>My Groups</Text>
+          <Text style={styles.textStyle}>My Groups</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -39,7 +39,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.invitationsReceived}>
-          <Text>Invitations Received</Text>
+          <Text style={styles.textStyle}>Invitations Received</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -48,7 +48,7 @@ handleLogout() {
           style={styles.buttonContainer}
           onPress={Actions.invitationsSent}>
 
-          <Text>Invitations Sent</Text>
+          <Text style={styles.textStyle}>Invitations Sent</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -56,7 +56,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={this.handleLogout.bind(this)}>
-          <Text>Logout!</Text>
+          <Text style={styles.textStyle}>Logout!</Text>
         </TouchableHighlight>
 
       </View>
@@ -90,5 +90,10 @@ const styles = StyleSheet.create({
     borderBottomColor: 'black',
     width: 200,
     alignItems: 'center'
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
   }
 });
