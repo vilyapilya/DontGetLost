@@ -30,6 +30,12 @@ class Api::UsersController < ApplicationController
 
     if @user
       @user.update_attribute(image_url: user_params[:image_url])
+      if user_params.latitude != @user.latitude
+        @user.update_attribute(latitude: user_params[:latitude])
+      end
+      if user_params.longitude != @user.longitude
+        @user.update_attribute(latitude: user_params[:longitude])
+      end
       render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 422
@@ -38,7 +44,6 @@ class Api::UsersController < ApplicationController
   end
 
   def user_params
-
-    params.require(:user).permit(:username, :password, :image_url)
+    params.require(:user).permit(:username, :password, :image_url, :latitude, :longitude)
   end
 end
