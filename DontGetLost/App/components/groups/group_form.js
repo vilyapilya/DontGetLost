@@ -24,7 +24,7 @@ export default class GroupForm extends Component {
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text style={styles.title}>Name Your Group</Text>
         <TextInput
-          style={{width: 200}}
+          style={{width: 250}}
           onChangeText={(val) => this.setState({group_name: val})}
           placeholder="Group Name" />
 
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 200,
+    width: 250,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#A3A3A3',
-    width: 200,
+    width: 250,
     height: 60,
     margin: 10,
     borderRadius: 3,

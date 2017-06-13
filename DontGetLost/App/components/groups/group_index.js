@@ -26,7 +26,9 @@ class GroupIndex extends Component{
       return (
         <View style={styles.scrollContainer}>
           <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Text style={styles.title}>Groups!</Text>
+            <View style={styles.border}>
+              <Text style={styles.title}>Groups!</Text>
+            </View>
             <TouchableHighlight
                 underlayColor='#FFFFFF'
                 activeOpacity={0.5}
@@ -137,7 +139,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
     width: 50,
-  }
+  },
+  border: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'black',
+    width: 250,
+    alignItems: 'center'
+  },
 });
 
 export default GroupIndex;
