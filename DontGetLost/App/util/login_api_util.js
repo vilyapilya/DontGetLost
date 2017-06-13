@@ -42,3 +42,19 @@ export const logout = () => (
     }
   )
 );
+
+export const updateUser = (user) => (
+  fetch(
+    `http://10.0.2.2:3000/api/users/${user.id}`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user: user
+      })
+    }
+  )
+)
