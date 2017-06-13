@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
 
 export default class GroupDetail extends Component {
   constructor() {
@@ -50,7 +54,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '600',
     fontSize: 16,
-    width: 200,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -69,13 +73,13 @@ const styles = StyleSheet.create({
   border: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
-    width: 200,
+    width: fullWidth,
   },
   altButton: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#d3a3e4',
-    width: 200,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
