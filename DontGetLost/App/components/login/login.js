@@ -45,7 +45,7 @@ class Login extends Component{
       try {
         let response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
         let res = await response.text();
-        if (response.status >= fullWidth && response.status < 300) {
+        if (response.status >= 200 && response.status < 300) {
           Actions.menu();
         } else {
           //Handle error
@@ -88,6 +88,7 @@ class Login extends Component{
           onPress={this.onLoginPress.bind(this)}>
           <Text style={styles.button}>Sign In</Text>
         </TouchableHighlight>
+
         <TouchableHighlight
           underlayColor='#FFFFFF'
           activeOpacity={0.5}
@@ -95,6 +96,7 @@ class Login extends Component{
           onPress={Actions.signup}>
           <Text style={styles.button}>New User?</Text>
         </TouchableHighlight>
+
         </View>
 
       </View>

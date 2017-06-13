@@ -43,7 +43,7 @@ async verifyToken(token) {
   try {
     let response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
     let res = await response.text();
-    if (response.status >= fullWidth && response.status < 300) {
+    if (response.status >= 200 && response.status < 300) {
       //Verified token means user is logged in so we redirect them home.
       // console.log('user still logged in');
       Actions.menu();
