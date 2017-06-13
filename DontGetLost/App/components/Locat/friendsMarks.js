@@ -10,18 +10,27 @@ class FriendsMarks extends Component {
     console.log(this.markers);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.markers == nextProps.markers) {
+      this.markers = nextProps.markers;
+    }
+  }
+
   render(){
-    console.log(this.markers);
-    return (
-      <View>
-        {this.markers.map(c => (
+    if(this.markers) {
+      return (
+        <View>
+          {this.markers.map(c => (
             <MapView.Marker.Animated
               coordinate={c}
               pinColor='#9d0eaf'
-            />
-        ))}
-      </View>
+              />
+          ))}
+        </View>
       );
+    }
+  }else {
+    return null;
   }
 }
 export default FriendsMarks;

@@ -29,6 +29,7 @@ class Locat extends Component{
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     this.friendsLatLng = this.friendsLatLng.bind(this);
+    // this.saveOwnPosition = this.saveOwnPosition.bind(this);
     // this.state = {
     //   latitude: null,
     //   longitude: null,
@@ -96,7 +97,6 @@ class Locat extends Component{
   componentDidMount() {
     this.watchId = navigator.geolocation.watchPosition(
       (position) => {
-        console.log("watching");
         this.setState({
           markCoordinate: {
             latitude: position.coords.latitude,
@@ -114,11 +114,27 @@ class Locat extends Component{
     this.props.requestSingleGroup(8);
   }
 
+  // saveOwnPosition(id, lat, lon, username) {
+  //   debugger
+  //   var user = {
+  //     id: id,
+  //     latitude: lat,
+  //     longitude: lon,
+  //     username: username
+  //   }
+    // this.ping = setInterval( () => {
+    //   this.props.updateUser(user);
+    // }, 10000)
+  //   this.props.updateUser(user);
+  // }
 
   componentWillUnmount() {
-    console.log("clear");
     navigator.geolocation.clearWatch(this.watchId);
-      console.log("clear");
+    clearInterval(this.ping);
+  }
+
+  onRegionChange(region) {
+
   }
 
   getInitialState() {
@@ -131,13 +147,6 @@ class Locat extends Component{
       }),
     };
   }
-  // animate() {
-  //   const { coordinate } = this.state;
-  //   this.setState({coordinate :{
-  //     latitude: LATITUDE + ((Math.random() - 0.5) * (LATITUDE_DELTA / 2)),
-  //     longitude: LONGITUDE + ((Math.random() - 0.5) * (LONGITUDE_DELTA / 2)),
-  //   }});
-  // }
 
   animate(lat, lon){
     const { markAnimRegion } = this.state;
@@ -165,8 +174,15 @@ class Locat extends Component{
   }
 
   render() {
+    console.log(this.state.markCoordinate);
+    console.log("cur");
+    console.log(this.currentUserId);
     var lat = this.state.mapCoordinate.latitude;
     var lon = this.state.mapCoordinate.longitude;
+
+    var ownMarkLat = this.state.markCoordinate.latitude;
+    var ownMarkLon = this.state.markCoordinate.longitude;
+
     var markers = this.friendsLatLng();
     return (
       <View style ={styles.container}>
