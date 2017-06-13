@@ -1,6 +1,6 @@
 export const createMembership = (groupMember) => (
   fetch(
-    'http://10.0.2.2:3000/api/groupmembers',
+    'https://dontgetlost.herokuapp.com/api/groupmembers',
     {
       method: 'POST',
       headers: {
@@ -16,7 +16,7 @@ export const createMembership = (groupMember) => (
 
 export const deleteMembership = (id) => (
   fetch(
-    `http://10.0.2.2:3000/api/groupmembers/${id}`,
+    `https://dontgetlost.herokuapp.com/api/groupmembers/${id}`,
     {
       method: 'DELETE',
       headers: {

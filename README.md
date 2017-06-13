@@ -1,6 +1,6 @@
 # Don't Get Lost
 
-[DontGetLost](https://dontgetlostdemositecomingsoon.com/#/)
+[DontGetLost](https://spookybit.github.io/DontGetLostDemo/)
 
 ## Background
 

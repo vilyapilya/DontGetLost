@@ -1,6 +1,6 @@
 export const getGroup = (id) => (
   fetch(
-    `http://10.0.2.2:3000/api/groups/${id}`,
+    `https://dontgetlost.herokuapp.com/api/groups/${id}`,
     {
       method: 'GET',
       headers: {
@@ -13,7 +13,7 @@ export const getGroup = (id) => (
 
 export const getGroups = () => (
   fetch(
-    'http://10.0.2.2:3000/api/groups',
+    'https://dontgetlost.herokuapp.com/api/groups',
     {
       method: 'GET',
       headers: {
@@ -26,7 +26,7 @@ export const getGroups = () => (
 
 export const createGroup = (group) => (
   fetch(
-    'http://10.0.2.2:3000/api/groups',
+    'https://dontgetlost.herokuapp.com/api/groups',
     {
       method: 'POST',
       headers: {
@@ -42,7 +42,7 @@ export const createGroup = (group) => (
 
 export const deleteGroup = (id) => (
   fetch(
-    `http://10.0.2.2:3000/api/groups/${id}`,
+    `https://dontgetlost.herokuapp.com/api/groups/${id}`,
     {
       method: 'DELETE',
       headers: {
@@ -55,7 +55,7 @@ export const deleteGroup = (id) => (
 
 export const updateGroup = (group) => (
   fetch(
-    `http://10.0.2.2:3000/api/groups/${group.id}`,
+    `https://dontgetlost.herokuapp.com/api/groups/${group.id}`,
     {
       method: 'PATCH',
       headers: {
