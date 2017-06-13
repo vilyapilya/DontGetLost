@@ -1,0 +1,9 @@
+{
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
+  "scripts": {
+    "postinstall": "react-native link react-native-maps"
+  }
+}
