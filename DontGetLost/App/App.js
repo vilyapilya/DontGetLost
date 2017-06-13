@@ -65,11 +65,8 @@ class App extends Component {
   async verifyToken(token) {
     const sessionToken = token;
     try {
-<<<<<<< HEAD
       let response = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
-=======
-      let response = await fetch('https://dontgetlost.herokuapp.com//api/verify?session%5Bsession_token%5D=' + sessionToken);
->>>>>>> 38f19a92fc59da2ce2d0f80ac300f0327e061c94
+
       let res = await response.text();
       if (response.status >= 200 && response.status < 300) {
         //Verified token means user is logged in so we redirect them home.
