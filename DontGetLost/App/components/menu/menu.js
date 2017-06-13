@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 200,
+    width: 250,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   border: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
-    width: 200,
+    width: 250,
     alignItems: 'center'
   },
   textStyle: {
