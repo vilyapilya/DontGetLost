@@ -28,9 +28,9 @@ class FriendsMarks extends Component {
           ))}
         </View>
       );
+    }else {
+      return null;
     }
-  }else {
-    return null;
   }
 }
 export default FriendsMarks;
