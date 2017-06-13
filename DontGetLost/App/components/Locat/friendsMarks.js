@@ -11,13 +11,13 @@ class FriendsMarks extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.markers == nextProps.markers) {
+    if(this.props.markers === nextProps.markers) {
       this.markers = nextProps.markers;
     }
   }
 
   render(){
-    if(this.markers) {
+    if (this.markers) {
       return (
         <View>
           {this.markers.map(c => (
@@ -28,9 +28,9 @@ class FriendsMarks extends Component {
           ))}
         </View>
       );
+    } else {
+      return null;
     }
-  }else {
-    return null;
   }
 }
 export default FriendsMarks;
