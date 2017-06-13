@@ -1,5 +1,6 @@
 export const getMadeInvitations = () => (
   fetch(
+
     'https://dontgetlost.herokuapp.com/api/invitations?sent=sent',
     {
       method: 'GET',
@@ -14,6 +15,7 @@ export const getMadeInvitations = () => (
 
 export const getReceivedInvitations = () => (
   fetch(
+
     'https://dontgetlost.herokuapp.com/api/invitations?sent=received',
     {
       method: 'GET',
@@ -27,6 +29,7 @@ export const getReceivedInvitations = () => (
 
 export const showInvitation = (invitation) => (
   fetch(
+
     `https://dontgetlost.herokuapp.com/api/invitations/${invitation.id}`,
     {
       method: 'GET',
@@ -40,6 +43,7 @@ export const showInvitation = (invitation) => (
 
 export const makeInvitation = (invitation) => (
   fetch(
+
     'https://dontgetlost.herokuapp.com/api/invitations',
     {
       method: 'POST',
@@ -56,6 +60,7 @@ export const makeInvitation = (invitation) => (
 
 export const deleteSentInvitation = (invitation_id) => (
   fetch(
+
     `https://dontgetlost.herokuapp.com/api/invitations/${invitation_id}?sent=sent`,
     {
       method: 'DELETE',
@@ -69,7 +74,9 @@ export const deleteSentInvitation = (invitation_id) => (
 
 export const deleteReceivedInvitation = (invitation_id) => (
   fetch(
+
     `https://dontgetlost.herokuapp.com/api/invitations/${invitation_id}?sent=received`,
+
     {
       method: 'DELETE',
       headers: {

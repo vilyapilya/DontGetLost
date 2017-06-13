@@ -3,6 +3,13 @@ import { View, Text, ScrollView, StyleSheet, ActivityIndicator, TouchableHighlig
 import GroupIndexItem from './group_index_item';
 import { Actions } from 'react-native-router-flux';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
+
+
+
 class GroupIndex extends Component{
   constructor() {
     super();
@@ -26,7 +33,9 @@ class GroupIndex extends Component{
       return (
         <View style={styles.scrollContainer}>
           <ScrollView contentContainerStyle={styles.contentContainer}>
-            <Text style={styles.title}>Groups!</Text>
+            <View style={styles.border}>
+              <Text style={styles.title}>Groups!</Text>
+            </View>
             <TouchableHighlight
                 underlayColor='#FFFFFF'
                 activeOpacity={0.5}
@@ -64,7 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     flexDirection: 'column',
-    // width: 250,
+    // width: fullWidth,
   },
   activityContainer: {
     alignItems: 'center',
@@ -81,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#74B530',
-    width: 250,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -97,7 +106,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#d3a3e4',
-    width: 250,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -137,7 +146,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 16,
     width: 50,
-  }
+  },
+  border: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'black',
+    width: fullWidth,
+    alignItems: 'center'
+  },
 });
 
 export default GroupIndex;

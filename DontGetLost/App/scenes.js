@@ -31,13 +31,13 @@ const Scenes = () => {
         key='signup'
         component={SignUpContainer}
         title="Sign Up"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='groupDetail'
         component={GroupDetailContainer}
         title="group detail"
-        hideNavBar={false}
+        hideNavBar={true}
         initial={false} />
 
       <Scene
@@ -56,25 +56,25 @@ const Scenes = () => {
         key='groupIndex'
         component={GroupIndexContainer}
         title="My Groups"
-        hideNavBar={false}/>
+        hideNavBar={true}/>
 
       <Scene
         key='groupForm'
         component={GroupFormContainer}
         title="Group Form"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='invitationsSent'
         component={InvitationsSentContainer}
         title="Invitations Sent"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='invitationsReceived'
         component={InvitationsReceivedContainer}
         title="Invitations Received"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='locat'

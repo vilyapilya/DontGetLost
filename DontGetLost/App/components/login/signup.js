@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
+
 class SignUp extends Component{
   constructor() {
     super(); {
@@ -36,7 +41,11 @@ async getToken() {
 async verifyToken(token) {
   const sessionToken = token;
   try {
+<<<<<<< HEAD
     let response = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
+=======
+    let response = await fetch('https://dontgetlost.herokuapp.com//api/verify?session%5Bsession_token%5D=' + sessionToken);
+>>>>>>> 38f19a92fc59da2ce2d0f80ac300f0327e061c94
     let res = await response.text();
     if (response.status >= 200 && response.status < 300) {
       //Verified token means user is logged in so we redirect them home.
@@ -72,8 +81,8 @@ async verifyToken(token) {
   render() {
     return (
 
-      <View style={{flex: 1, marginTop: 100}}>
-        <Text>User Registration</Text>
+      <View style={{flex: 1, marginTop: 50}}>
+        <Text style={styles.title}>User Registration</Text>
         <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
         <TextInput style={styles.input} onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
         {this.errors()}
@@ -104,14 +113,15 @@ const styles = StyleSheet.create({
   title: {
     alignSelf: 'center',
     fontSize: 24,
+    margin: 25,
   },
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 200,
-    height: 40,
-    margin: 10,
+    width: fullWidth,
+    height: 60,
+    margin: 20,
     borderRadius: 3,
     shadowColor: '#000000',
     shadowOpacity: 0.8,
@@ -126,8 +136,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#A3A3A3',
-    width: 200,
-    height: 40,
+    width: fullWidth,
+    height: 60,
     marginTop: 10,
     borderRadius: 3,
     shadowColor: '#000000',

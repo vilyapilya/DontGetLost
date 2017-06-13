@@ -3,6 +3,13 @@ import React, {Component} from 'react';
 import { View, Button, Text, StyleSheet, TouchableHighlight } from 'react-native';
 import GroupDetailContainer from './group_detail_container';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
+
+
+
 export default class GroupIndexItem extends Component {
   constructor() {
     super();
@@ -43,7 +50,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#74B530',
-    width: 250,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,

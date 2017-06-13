@@ -3,6 +3,12 @@ import { View, Text, ScrollView, TextInput, StyleSheet, TouchableHighlight } fro
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions/session_actions';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
+
+
 
 
 export default class Menu extends Component {
@@ -23,7 +29,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.locat}>
-          <Text>Map</Text>
+          <Text style={styles.textStyle}>Map</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -31,7 +37,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.groupIndex}>
-          <Text>My Groups</Text>
+          <Text style={styles.textStyle}>My Groups</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -39,7 +45,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.invitationsReceived}>
-          <Text>Invitations Received</Text>
+          <Text style={styles.textStyle}>Invitations Received</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -48,7 +54,7 @@ handleLogout() {
           style={styles.buttonContainer}
           onPress={Actions.invitationsSent}>
 
-          <Text>Invitations Sent</Text>
+          <Text style={styles.textStyle}>Invitations Sent</Text>
         </TouchableHighlight>
 
         <TouchableHighlight
@@ -56,7 +62,7 @@ handleLogout() {
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={this.handleLogout.bind(this)}>
-          <Text>Logout!</Text>
+          <Text style={styles.textStyle}>Logout!</Text>
         </TouchableHighlight>
 
       </View>
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 200,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -88,7 +94,12 @@ const styles = StyleSheet.create({
   border: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
-    width: 200,
+    width: fullWidth,
     alignItems: 'center'
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
   }
 });

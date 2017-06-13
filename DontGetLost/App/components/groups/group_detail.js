@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import { View, Text, ScrollView, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
 
 export default class GroupDetail extends Component {
   constructor() {
@@ -22,37 +26,37 @@ export default class GroupDetail extends Component {
     return (
 
       <View style={styles.namesContainer}>
-        <TouchableHighlight onPress={Actions.invitationForm}>
-          <Text>Invite Someone</Text>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
+        <TouchableHighlight
+            underlayColor='#FFFFFF'
+            activeOpacity={0.5}
+            onPress={Actions.invitationForm}
+            style={styles.altButton}
+        >
+          <Text style={styles.button}>
+            Invite A Friend
+          </Text>
         </TouchableHighlight>
         <View style={styles.border}>
-        <Text style={styles.title}>Group Members</Text>
+          <Text style={{fontSize: 24, textAlign: 'center'}}>{this.props.groupDetail.group_name}</Text>
         </View>
         {this.renderNames()}
+      </ScrollView>
       </View>
     );
   }
 
 }
 
-// <ScrollView>
-//   {this.props.members.map(member => member.user.username)}
-// </ScrollView>
-
-// <TouchableHighlight
-//   underlayColor='#FFFFFF'
-//   activeOpacity={0.5}
-//   style={styles.buttonContainer}
-//   onPress={Actions.groupIndex}>
-//   <Text>Back to Groups</Text>
-// </TouchableHighlight>
-
 const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 200,
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -71,6 +75,36 @@ const styles = StyleSheet.create({
   border: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
-    width: 200,
-  }
+    width: fullWidth,
+  },
+  altButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#d3a3e4',
+    width: fullWidth,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  contentContainer: {
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    flexDirection: 'column',
+  },
+  button: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
+    margin: 1
+  },
 });

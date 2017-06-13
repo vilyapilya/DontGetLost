@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Locat from './locat';
-import { requestSingleGroup } from '../../actions/group_actions';
+import { requestSingleGroup, updateUser } from '../../actions/group_actions';
 
 
 const mapStateToProps = ( {groupDetail, currentUser} ) => ({
@@ -9,7 +9,8 @@ const mapStateToProps = ( {groupDetail, currentUser} ) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestSingleGroup: (id) => dispatch(requestSingleGroup(id))
+  requestSingleGroup: (id) => dispatch(requestSingleGroup(id)),
+  updateUser: (id) => dispatch(updateUser(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Locat);
