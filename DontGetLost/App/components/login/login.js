@@ -43,7 +43,7 @@ class Login extends Component{
     async verifyToken(token) {
       const sessionToken = token;
       try {
-        let response = await fetch('https://dontgetlost.herokuapp.com//api/verify?session%5Bsession_token%5D=' + sessionToken);
+        let response = await fetch('http://localhost:3000///api/verify?session%5Bsession_token%5D=' + sessionToken);
         let res = await response.text();
         if (response.status >= 200 && response.status < 300) {
           Actions.menu();
