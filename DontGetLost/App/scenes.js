@@ -56,25 +56,25 @@ const Scenes = () => {
         key='groupIndex'
         component={GroupIndexContainer}
         title="My Groups"
-        hideNavBar={false}/>
+        hideNavBar={true}/>
 
       <Scene
         key='groupForm'
         component={GroupFormContainer}
         title="Group Form"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='invitationsSent'
         component={InvitationsSentContainer}
         title="Invitations Sent"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='invitationsReceived'
         component={InvitationsReceivedContainer}
         title="Invitations Received"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='locat'
