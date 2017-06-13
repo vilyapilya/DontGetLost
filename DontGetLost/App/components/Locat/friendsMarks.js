@@ -18,6 +18,8 @@ class FriendsMarks extends Component {
   }
 
   render(){
+    console.log("oo");
+    console.log(this.markers);
     if (this.markers) {
       return (
         <View>
@@ -35,7 +37,8 @@ class FriendsMarks extends Component {
 
     }else {
       return null;
-    }  
+    }
+  }
 }
 const styles = StyleSheet.create({
   marker: {
@@ -45,7 +48,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
-
   }
 });
 export default FriendsMarks;

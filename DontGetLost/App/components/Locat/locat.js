@@ -184,6 +184,7 @@ class Locat extends Component{
     var ownMarkLon = this.state.markCoordinate.longitude;
 
     var markers = this.friendsLatLng();
+    console.log(markers);
     return (
       <View style ={styles.container}>
         <MapView
