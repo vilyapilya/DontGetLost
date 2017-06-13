@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import { View, Text, ScrollView, TextInput, StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
+
+
+
 export default class GroupForm extends Component {
   constructor() {
     super();
@@ -24,7 +31,7 @@ export default class GroupForm extends Component {
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text style={styles.title}>Name Your Group</Text>
         <TextInput
-          style={{width: 250}}
+          style={{width: fullWidth}}
           onChangeText={(val) => this.setState({group_name: val})}
           placeholder="Group Name" />
 
@@ -57,7 +64,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 250,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#A3A3A3',
-    width: 250,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
