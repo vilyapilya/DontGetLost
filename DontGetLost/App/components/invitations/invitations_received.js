@@ -17,11 +17,11 @@ class InvitationsReceived extends Component {
     const invitations = this.props.invitations;
     if (Object.keys(invitations).length !== 0) {
       return Object.keys(invitations).map((key, idx) => {
-        return <InvitationReceivedItem key={idx}
-          deleteReceivedInvitation = {this.props.deleteReceivedInvitation}
-          joinGroup = {this.props.joinGroup}
-          invitation={invitations[key]} />
-      })
+        return (<InvitationReceivedItem key={idx}
+          deleteReceivedInvitation={this.props.deleteReceivedInvitation}
+          joinGroup={this.props.joinGroup}
+          invitation={invitations[key]} />);
+      });
 
     }
   }
@@ -31,16 +31,13 @@ class InvitationsReceived extends Component {
       <View style={styles.container}>
         {this.invitations()}
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: .3,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: 'pink',
+    flex: 1,
   },
 });
 

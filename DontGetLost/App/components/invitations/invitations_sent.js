@@ -18,7 +18,7 @@ class InvitationsSent extends Component {
     if (Object.keys(invitations).length !== 0) {
       return Object.keys(invitations).map((key, idx) => {
         return <InvitationSentItem key={idx} deleteSentInvitation = {this.props.deleteSentInvitation} invitation={invitations[key]} />
-      })
+      });
 
     }
   }
@@ -28,16 +28,13 @@ class InvitationsSent extends Component {
       <View style={styles.container}>
         {this.invitations()}
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: .3,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    backgroundColor: 'pink',
+    flex: 1,
   },
 });
 
