@@ -26,6 +26,7 @@ export default class GroupDetail extends Component {
     return (
 
       <View style={styles.namesContainer}>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
         <TouchableHighlight
             underlayColor='#FFFFFF'
             activeOpacity={0.5}
@@ -40,6 +41,7 @@ export default class GroupDetail extends Component {
           <Text style={{fontSize: 24, textAlign: 'center'}}>{this.props.groupDetail.group_name}</Text>
         </View>
         {this.renderNames()}
+      </ScrollView>
       </View>
     );
   }
@@ -90,6 +92,13 @@ const styles = StyleSheet.create({
       height: 2,
       width: -2
     },
+  },
+  contentContainer: {
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    flexDirection: 'column',
   },
   button: {
     textAlign: 'center',

@@ -31,13 +31,13 @@ const Scenes = () => {
         key='signup'
         component={SignUpContainer}
         title="Sign Up"
-        hideNavBar={false} />
+        hideNavBar={true} />
 
       <Scene
         key='groupDetail'
         component={GroupDetailContainer}
         title="group detail"
-        hideNavBar={false}
+        hideNavBar={true}
         initial={false} />
 
       <Scene
