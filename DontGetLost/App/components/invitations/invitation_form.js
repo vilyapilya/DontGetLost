@@ -8,14 +8,14 @@ class InvitationForm extends Component {
 
     this.state = {
       invitee: ""
-    }
+    };
   }
 
   handleSubmit(){
     const invitee_username = this.state.invitee;
     const group_id = this.props.groupDetail.id;
 
-    const invitation = {group_id: group_id, invitee_username: invitee_username}
+    const invitation = {group_id: group_id, invitee_username: invitee_username};
     this.setState.invitee = "";
     this.props.makeInvitation(invitation);
     // setTimeout(Action.groupDetail, 1000)

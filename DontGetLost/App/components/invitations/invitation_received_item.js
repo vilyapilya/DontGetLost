@@ -9,12 +9,12 @@ class InvitationReceivedItem extends Component {
   }
 
   onDeleteInvitePress(){
-    this.props.deleteReceivedInvitation(this.props.invitation.id)
+    this.props.deleteReceivedInvitation(this.props.invitation.id);
   }
 
   onAcceptInvitePress(){
-    this.props.deleteReceivedInvitation(this.props.invitation.id)
-    this.props.joinGroup(this.props.invitation.group_id)
+    this.props.deleteReceivedInvitation(this.props.invitation.id);
+    this.props.joinGroup(this.props.invitation.group_id);
   }
 
 
