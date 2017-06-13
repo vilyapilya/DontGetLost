@@ -22,7 +22,7 @@ It uses Google Static Maps API to update positions in real time.
 ## Map
 The app uses Google Maps to pinpoint your location as well as the location of your friends.
 
-![googlemaps](./public/images/map.png)
+![googlemaps](./public/images/map2.png)
 
 ```
 onRegionChange(mapCoordinate) {
