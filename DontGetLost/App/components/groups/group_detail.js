@@ -22,11 +22,18 @@ export default class GroupDetail extends Component {
     return (
 
       <View style={styles.namesContainer}>
-        <TouchableHighlight onPress={Actions.invitationForm}>
-          <Text>Invite Someone</Text>
+        <TouchableHighlight
+            underlayColor='#FFFFFF'
+            activeOpacity={0.5}
+            onPress={Actions.invitationForm}
+            style={styles.altButton}
+        >
+          <Text style={styles.button}>
+            Invite A Friend
+          </Text>
         </TouchableHighlight>
         <View style={styles.border}>
-        <Text style={styles.title}>Group Members</Text>
+          <Text style={{fontSize: 24, textAlign: 'center'}}>{this.props.groupDetail.group_name}</Text>
         </View>
         {this.renderNames()}
       </View>
@@ -35,23 +42,14 @@ export default class GroupDetail extends Component {
 
 }
 
-// <ScrollView>
-//   {this.props.members.map(member => member.user.username)}
-// </ScrollView>
-
-// <TouchableHighlight
-//   underlayColor='#FFFFFF'
-//   activeOpacity={0.5}
-//   style={styles.buttonContainer}
-//   onPress={Actions.groupIndex}>
-//   <Text>Back to Groups</Text>
-// </TouchableHighlight>
-
 const styles = StyleSheet.create({
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
     width: 200,
     height: 60,
     margin: 10,
@@ -72,5 +70,28 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'black',
     width: 200,
-  }
+  },
+  altButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#d3a3e4',
+    width: 200,
+    height: 60,
+    margin: 10,
+    borderRadius: 3,
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    shadowOffset: {
+      height: 2,
+      width: -2
+    },
+  },
+  button: {
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 16,
+    margin: 1
+  },
 });
