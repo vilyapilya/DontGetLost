@@ -3,6 +3,12 @@ import { View, Text, ScrollView, TextInput, StyleSheet, TouchableHighlight } fro
 import { Actions } from 'react-native-router-flux';
 import { logout } from '../../actions/session_actions';
 
+import Dimensions from 'Dimensions';
+
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
+
+
 
 
 export default class Menu extends Component {
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 250,
+    width: fullWidth,
     height: 60,
     margin: 10,
     borderRadius: 3,
@@ -88,7 +94,7 @@ const styles = StyleSheet.create({
   border: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
-    width: 250,
+    width: fullWidth,
     alignItems: 'center'
   },
   textStyle: {

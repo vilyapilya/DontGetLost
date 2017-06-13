@@ -5,8 +5,8 @@ import { Actions } from 'react-native-router-flux';
 
 import Dimensions from 'Dimensions';
 
-const fullHeight = Dimensions.get('window').height;
-const fullWidth = Dimensions.get('window').width;
+const fullHeight = Dimensions.get('window').height - 40;
+const fullWidth = Dimensions.get('window').width - 120;
 
 const ACCESS_TOKEN = 'acccess_token';
 
@@ -45,7 +45,7 @@ class Login extends Component{
       try {
         let response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
         let res = await response.text();
-        if (response.status >= 200 && response.status < 300) {
+        if (response.status >= fullWidth && response.status < 300) {
           Actions.menu();
         } else {
           //Handle error
@@ -75,7 +75,8 @@ class Login extends Component{
 
   render() {
     return (
-      <View style={{flex: 1, marginTop: 100}}>
+      <View style={{flex: 1, marginTop: 50}}>
+        <Text style={styles.title}>Login</Text>
         <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
         <TextInput style={styles.input} onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
         {this.errors()}
@@ -107,14 +108,15 @@ const styles = StyleSheet.create({
   title: {
     alignSelf: 'center',
     fontSize: 24,
+    margin: 25,
   },
   buttonContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#ADD8E6',
-    width: 200,
-    height: 40,
-    margin: 10,
+    width: fullWidth,
+    height: 60,
+    margin: 20,
     borderRadius: 3,
     shadowColor: '#000000',
     shadowOpacity: 0.8,
@@ -129,8 +131,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#A3A3A3',
-    width: 200,
-    height: 40,
+    width: fullWidth,
+    height: 60,
     marginTop: 10,
     borderRadius: 3,
     shadowColor: '#000000',
