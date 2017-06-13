@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 
 class FriendsMarks extends Component {
@@ -7,24 +7,29 @@ class FriendsMarks extends Component {
   constructor(props) {
     super(props);
     this.markers = this.props.markers;
+    this.members = this.props.members;
     console.log(this.markers);
   }
 
   componentWillReceiveProps(nextProps) {
-    if(this.props.markers == nextProps.markers) {
+    if(this.props.markers === nextProps.markers) {
       this.markers = nextProps.markers;
     }
   }
 
   render(){
+    console.log();
     if(this.markers) {
       return (
         <View>
-          {this.markers.map(c => (
+          {this.markers.map( (c, i) => (
             <MapView.Marker.Animated
               coordinate={c}
-              pinColor='#9d0eaf'
-              />
+            >
+            <View style={styles.marker}>
+              <Text style={styles.text}>{this.members[i]}</Text>
+            </View>
+          </MapView.Marker.Animated>
           ))}
         </View>
       );
@@ -33,4 +38,15 @@ class FriendsMarks extends Component {
     }
   }
 }
+const styles = StyleSheet.create({
+  marker: {
+    backgroundColor: "#9d0eaf",
+    padding: 5,
+    borderRadius: 5,
+  },
+  text: {
+    color: 'white',
+    
+  }
+});
 export default FriendsMarks;

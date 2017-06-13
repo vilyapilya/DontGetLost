@@ -174,9 +174,9 @@ class Locat extends Component{
   }
 
   render() {
-    console.log(this.state.markCoordinate);
     console.log("cur");
-    console.log(this.currentUserId);
+    var members = this.props.groupDetail.members;
+    console.log(members);
     var lat = this.state.mapCoordinate.latitude;
     var lon = this.state.mapCoordinate.longitude;
 
@@ -199,7 +199,7 @@ class Locat extends Component{
         <MapView.Marker.Animated
           coordinate={this.state.markCoordinate}
         />
-        <FriendsMarks markers={markers}></FriendsMarks>
+        <FriendsMarks markers={markers} members={members}></FriendsMarks>
       </MapView>
     </View>
     );
