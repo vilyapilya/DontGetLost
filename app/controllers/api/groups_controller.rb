@@ -1,5 +1,5 @@
 class Api::GroupsController < ApplicationController
-  # before_action :require_logged_in!
+  before_action :require_logged_in!
 
   def show
     @group = Group.find(params[:id])
