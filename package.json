@@ -1,6 +1,28 @@
 {
+  "name": "DontGetLost",
+  "version": "1.0.0",
+  "description": "Find your friends",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
   "engines": {
-    "node": "8.0.0",
-    "npm": "5.0.1"
-  }
+    "node": "4.1.1",
+    "npm": "3.10.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vilyapilya/DontGetLost"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vilyapilya/DontGetLost/issues"
+  },
+  "homepage": "https://github.com/vilyapilya/DontGetLost#readme"
 }
