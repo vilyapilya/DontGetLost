@@ -9,6 +9,8 @@ import { View,
   TouchableOpacity,
   Animated } from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
+import FriendsMarks from './friendsMarks'
+
 const ACCESS_TOKEN = 'acccess_token';
 
 const screen = Dimensions.get('window');
@@ -26,6 +28,7 @@ class Locat extends Component{
     this.currentUserId = this.props.currentUser.id;
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
+    this.friendsLatLng = this.friendsLatLng.bind(this);
     // this.state = {
     //   latitude: null,
     //   longitude: null,
@@ -103,19 +106,12 @@ class Locat extends Component{
         });
 
         this.updateMapPosition();
-
-        //this.animate(position.coords.latitude, position.coords.longitude);
-
-
-        // console.log(this.state.mapCoordinate.longitudeDelta);
-        // console.log(this.state.mapCoordinate.latitudeDelta);
-
       },
       (error) => this.setState({markCoordinate: { error: error.message }}),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000, distanceFilter: 10 },
     );
 
-    this.props.requestSingleGroup(1);
+    this.props.requestSingleGroup(8);
   }
 
 
@@ -125,17 +121,6 @@ class Locat extends Component{
       console.log("clear");
   }
 
-  onRegionChange(mapCoordinate) {
-    console.log("ch");
-    console.log(mapCoordinate);
-    this.setState({
-      markCoordinate: {
-        latitude: mapCoordinate.latitude,
-        longitude: mapCoordinate.longitude,
-        error: null
-      }
-    });
-  }
   getInitialState() {
     console.log(this.state.groupDetail);
     return {
@@ -162,11 +147,27 @@ class Locat extends Component{
         }).start();
   }
 
+  friendsLatLng(){
+    if(!this.props.groupDetail.members_lat){
+      return null;
+    }
+    var markers = [];
+    console.log("method");
+    var lats = this.props.groupDetail.members_lat;
+    // console.log(lats);
+    var lons = this.props.groupDetail.members_long;
+    for (var i = 0; i < lats.length; i++) {
+      let coord = {latitude: lats[i],
+                   longitude:  lons[i]};
+      markers.push(coord);
+    }
+    return markers;
+  }
 
   render() {
-    console.log(this.props.groupDetail);
-    let lat = this.state.mapCoordinate.latitude;
-    let lon = this.state.mapCoordinate.longitude;
+    var lat = this.state.mapCoordinate.latitude;
+    var lon = this.state.mapCoordinate.longitude;
+    var markers = this.friendsLatLng();
     return (
       <View style ={styles.container}>
         <MapView
@@ -182,23 +183,12 @@ class Locat extends Component{
         <MapView.Marker.Animated
           coordinate={this.state.markCoordinate}
         />
-        </MapView>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={this.animate}
-            style={[styles.bubble, styles.button]}
-          >
-            <Text>Animate</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+        <FriendsMarks markers={markers}></FriendsMarks>
+      </MapView>
+    </View>
     );
   }
 }
-
-// Locat.propTypes = {
-//   provider: MapView.ProviderPropType,
-// };
 
 const styles = StyleSheet.create({
     container: {
