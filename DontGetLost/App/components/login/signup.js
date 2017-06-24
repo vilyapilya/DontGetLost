@@ -86,14 +86,14 @@ async verifyToken(token) {
         {this.errors()}
         <View style={styles.footer}>
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={this.onRegisterPress.bind(this)}>
           <Text style={styles.button}>Sign Up</Text>
         </TouchableHighlight>
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#A3A3A3'
           activeOpacity={0.5}
           style={styles.altButton}
           onPress={Actions.login}>

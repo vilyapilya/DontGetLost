@@ -37,7 +37,7 @@ class GroupIndex extends Component{
               <Text style={styles.title}>Groups!</Text>
             </View>
             <TouchableHighlight
-                underlayColor='#FFFFFF'
+                underlayColor='#d3a3e4'
                 activeOpacity={0.5}
                 onPress={Actions.groupForm}
                 style={styles.altButton}
