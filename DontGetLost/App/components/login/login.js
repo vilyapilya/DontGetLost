@@ -83,7 +83,7 @@ class Login extends Component{
         {this.errors()}
         <View style={styles.footer}>
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={this.onLoginPress.bind(this)}>
@@ -91,7 +91,7 @@ class Login extends Component{
         </TouchableHighlight>
 
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#A3A3A3'
           activeOpacity={0.5}
           style={styles.altButton}
           onPress={Actions.signup}>
