@@ -49,10 +49,10 @@ class Login extends Component{
         let res = await response.text();
         // console.log(response);
         if (response.status >= 200 && response.status < 300) {
-          let response2 = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
-          const currentUser = response2.json();
-          console.log(currentUser);
-          this.props.receiveCurrentUser(currentUser);
+          // let response2 = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
+          // const currentUser = response2.json();
+          // console.log(currentUser);
+          // this.props.receiveCurrentUser(currentUser);
           Actions.menu();
         } else {
           //Handle error
