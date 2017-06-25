@@ -82,6 +82,7 @@ class Login extends Component{
 
   render() {
     return (
+
       <View style={{flex: 1}}>
         <Image source={require('../../../images/login.png')} style={styles.background}>
           <Text style={styles.title}>Login</Text>
@@ -89,24 +90,24 @@ class Login extends Component{
           <TextInput style={styles.input} onChangeText={(val) => this.setState({password:val})} underlineColorAndroid= 'white' placeholderTextColor='white' placeholder="Password" secureTextEntry={true}/>
           {this.errors()}
           <View style={styles.footer}>
-          <TouchableHighlight
-            underlayColor='#FFFFFF'
-            activeOpacity={0.5}
-            style={styles.buttonContainer}
-            onPress={this.onLoginPress.bind(this)}>
-            <Text style={styles.button}>Sign In</Text>
-          </TouchableHighlight>
+            <TouchableHighlight
+              underlayColor='#ADD8E6'
+              activeOpacity={0.5}
+              style={styles.buttonContainer}
+              onPress={this.onLoginPress.bind(this)}>
+              <Text style={styles.button}>Sign In</Text>
+            </TouchableHighlight>
 
-          <TouchableHighlight
-            underlayColor='#FFFFFF'
-            activeOpacity={0.5}
-            style={styles.altButton}
-            onPress={Actions.signup}>
-            <Text style={styles.button}>New User?</Text>
-          </TouchableHighlight>
-
+            <TouchableHighlight
+              underlayColor='#A3A3A3'
+              activeOpacity={0.5}
+              style={styles.altButton}
+              onPress={Actions.signup}>
+              <Text style={styles.button}>New User?</Text>
+            </TouchableHighlight>
           </View>
         </Image>
+
       </View>
 
     );

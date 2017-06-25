@@ -22,7 +22,7 @@ handleLogout() {
         <Text style={{fontSize: 24}}>Main Menu</Text>
         </View>
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.locat}>
@@ -30,7 +30,7 @@ handleLogout() {
         </TouchableHighlight>
 
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.groupIndex}>
@@ -38,7 +38,7 @@ handleLogout() {
         </TouchableHighlight>
 
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.invitationsReceived}>
@@ -46,7 +46,7 @@ handleLogout() {
         </TouchableHighlight>
 
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={Actions.invitationsSent}>
@@ -55,7 +55,7 @@ handleLogout() {
         </TouchableHighlight>
 
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={this.handleLogout.bind(this)}>

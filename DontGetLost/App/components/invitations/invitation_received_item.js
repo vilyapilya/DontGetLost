@@ -32,7 +32,7 @@ class InvitationReceivedItem extends Component {
         </View>
 
           <TouchableHighlight
-            underlayColor='#FFFFFF'
+            underlayColor='#ff6961'
             activeOpacity={0.5}
             style={styles.buttonContainer}
             onPress={this.onDeleteInvitePress.bind(this)}>
@@ -40,7 +40,7 @@ class InvitationReceivedItem extends Component {
           </TouchableHighlight>
 
           <TouchableHighlight
-            underlayColor='#FFFFFF'
+            underlayColor='#74B530'
             activeOpacity={0.5}
             style={styles.altContainer}
             onPress={this.onAcceptInvitePress.bind(this)}>

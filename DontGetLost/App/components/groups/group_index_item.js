@@ -26,7 +26,7 @@ export default class GroupIndexItem extends Component {
     return (
     <View style={styles.row}>
       <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#74B530'
           activeOpacity={0.5}
           onPress={this.handlePress.bind(this)}
           style={styles.buttonContainer}

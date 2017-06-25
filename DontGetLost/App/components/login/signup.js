@@ -78,28 +78,27 @@ async verifyToken(token) {
   // <TextInput onChangeText={(val) => this.setState({password_confirmation:val})} placeholder="Password Confirmation" secureTextEntry={true}/>
   render() {
     return (
-
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, marginTop: 50}}>
         <Image source={require('../../../images/login.png')} style={styles.background}>
           <Text style={styles.title}>User Registration</Text>
           <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} underlineColorAndroid= 'white' placeholderTextColor='white' placeholder="Username" />
           <TextInput style={styles.input} onChangeText={(val) => this.setState({password:val})} underlineColorAndroid= 'white' placeholderTextColor='white' placeholder="Password" secureTextEntry={true}/>
           {this.errors()}
           <View style={styles.footer}>
-          <TouchableHighlight
-            underlayColor='#FFFFFF'
-            activeOpacity={0.5}
-            style={styles.buttonContainer}
-            onPress={this.onRegisterPress.bind(this)}>
-            <Text style={styles.button}>Sign Up</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            underlayColor='#FFFFFF'
-            activeOpacity={0.5}
-            style={styles.altButton}
-            onPress={Actions.login}>
-            <Text style={styles.button}>Already a User?</Text>
-          </TouchableHighlight>
+            <TouchableHighlight
+              underlayColor='#ADD8E6'
+              activeOpacity={0.5}
+              style={styles.buttonContainer}
+              onPress={this.onRegisterPress.bind(this)}>
+              <Text style={styles.button}>Sign Up</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              underlayColor='#A3A3A3'
+              activeOpacity={0.5}
+              style={styles.altButton}
+              onPress={Actions.login}>
+              <Text style={styles.button}>Already a User?</Text>
+            </TouchableHighlight>
           </View>
         </Image>
       </View>
