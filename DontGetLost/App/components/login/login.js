@@ -82,7 +82,7 @@ class Login extends Component{
 
   render() {
     return (
-      <View style={{flex: 1, marginTop: 50}}>
+      <View style={{flex: 1}}>
         <Image source={require('../../../images/login.png')} style={styles.background}>
           <Text style={styles.title}>Login</Text>
           <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} underlineColorAndroid= 'white' placeholderTextColor='white' placeholder="Username" />
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   title: {
     alignSelf: 'center',
     fontSize: 24,
-    margin: 25,
+    margin: 45,
     color: 'white'
   },
   buttonContainer: {

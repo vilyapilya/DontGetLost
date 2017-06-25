@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet} from 'react-native';
+import { View, Text, TextInput, TouchableHighlight, AsyncStorage, StyleSheet, Image} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import Dimensions from 'Dimensions';
@@ -79,27 +79,29 @@ async verifyToken(token) {
   render() {
     return (
 
-      <View style={{flex: 1, marginTop: 50}}>
-        <Text style={styles.title}>User Registration</Text>
-        <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} placeholder="Username" />
-        <TextInput style={styles.input} onChangeText={(val) => this.setState({password:val})} placeholder="Password" secureTextEntry={true}/>
-        {this.errors()}
-        <View style={styles.footer}>
-        <TouchableHighlight
-          underlayColor='#FFFFFF'
-          activeOpacity={0.5}
-          style={styles.buttonContainer}
-          onPress={this.onRegisterPress.bind(this)}>
-          <Text style={styles.button}>Sign Up</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor='#FFFFFF'
-          activeOpacity={0.5}
-          style={styles.altButton}
-          onPress={Actions.login}>
-          <Text style={styles.button}>Already a User?</Text>
-        </TouchableHighlight>
-        </View>
+      <View style={{flex: 1}}>
+        <Image source={require('../../../images/login.png')} style={styles.background}>
+          <Text style={styles.title}>User Registration</Text>
+          <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} underlineColorAndroid= 'white' placeholderTextColor='white' placeholder="Username" />
+          <TextInput style={styles.input} onChangeText={(val) => this.setState({password:val})} underlineColorAndroid= 'white' placeholderTextColor='white' placeholder="Password" secureTextEntry={true}/>
+          {this.errors()}
+          <View style={styles.footer}>
+          <TouchableHighlight
+            underlayColor='#FFFFFF'
+            activeOpacity={0.5}
+            style={styles.buttonContainer}
+            onPress={this.onRegisterPress.bind(this)}>
+            <Text style={styles.button}>Sign Up</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor='#FFFFFF'
+            activeOpacity={0.5}
+            style={styles.altButton}
+            onPress={Actions.login}>
+            <Text style={styles.button}>Already a User?</Text>
+          </TouchableHighlight>
+          </View>
+        </Image>
       </View>
 
     );
@@ -108,10 +110,15 @@ async verifyToken(token) {
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    maxWidth: fullWidth + 120
+  },
   title: {
     alignSelf: 'center',
     fontSize: 24,
-    margin: 25,
+    margin: 45,
+    color: 'white'
   },
   buttonContainer: {
     alignItems: 'center',
@@ -153,7 +160,10 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   input: {
-    fontSize: 20
+    fontSize: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    color: 'white'
   },
   footer: {
     marginTop: 75,
@@ -161,6 +171,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   errors: {
+    marginLeft: 30,
     color: 'red',
     fontSize: 16
   }
