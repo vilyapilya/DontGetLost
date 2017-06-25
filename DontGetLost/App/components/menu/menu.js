@@ -8,9 +8,6 @@ import Dimensions from 'Dimensions';
 const fullHeight = Dimensions.get('window').height - 40;
 const fullWidth = Dimensions.get('window').width - 120;
 
-
-
-
 export default class Menu extends Component {
 
 handleLogout() {
