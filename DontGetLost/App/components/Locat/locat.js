@@ -25,17 +25,11 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 class Locat extends Component{
   constructor(props) {
     super(props);
-    this.currentUserId = this.props.currentUser.id;
+    // this.currentUserId = this.props.currentUser.id;
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     this.friendsLatLng = this.friendsLatLng.bind(this);
-    // this.saveOwnPosition = this.saveOwnPosition.bind(this);
-    // this.state = {
-    //   latitude: null,
-    //   longitude: null,
-    //   latitudeDelta: 0.015,
-    //   longitudeDelta: 0.015
-    // };
+    this.saveOwnPosition = this.saveOwnPosition.bind(this);
     this.state = {
       mapCoordinate: {
         latitude: LATITUDE,
@@ -47,9 +41,16 @@ class Locat extends Component{
         latitude: LATITUDE,
         longitude: LONGITUDE,
         error: null
-      },
+      }
     };
-
+    this.currentUserId = 8;
+    this.currentUser = {
+        id: 8,
+        image_url: null,
+        username:  "person1",
+        latitude: this.state.markCoordinate.latitude,
+        longitude: this.state.markCoordinate.longitude
+    };
 
     this.onRegionChange = this.onRegionChange.bind(this);
     this.animate = this.animate.bind(this);
@@ -112,25 +113,13 @@ class Locat extends Component{
     );
 
     this.props.requestSingleGroup(8);
+    this.props.updateUser(this.currentUser);
   }
 
-  // saveOwnPosition(id, lat, lon, username) {
-  //   debugger
-  //   var user = {
-  //     id: id,
-  //     latitude: lat,
-  //     longitude: lon,
-  //     username: username
-  //   }
-    // this.ping = setInterval( () => {
-    //   this.props.updateUser(user);
-    // }, 10000)
-  //   this.props.updateUser(user);
-  // }
+
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchId);
-    clearInterval(this.ping);
   }
 
   onRegionChange(region) {
@@ -138,7 +127,6 @@ class Locat extends Component{
   }
 
   getInitialState() {
-    console.log(this.state.groupDetail);
     return {
       mapCoordinate: new MapView.AnimatedRegion({
         latitude: LATITUDE,
@@ -161,7 +149,6 @@ class Locat extends Component{
       return null;
     }
     var markers = [];
-    console.log("method");
     var lats = this.props.groupDetail.members_lat;
     // console.log(lats);
     var lons = this.props.groupDetail.members_long;
@@ -173,18 +160,24 @@ class Locat extends Component{
     return markers;
   }
 
+  saveOwnPosition() {
+    var lat = this.state.markCoordinate.latitude;
+    var lon = this.state.markCoordinate.longitude;
+    var that = this;
+    console.log(lat);
+    that.props.updateUser(this.currentUser);
+  }
+
   render() {
-    console.log("cur");
     var members = this.props.groupDetail.members;
-    console.log(members);
     var lat = this.state.mapCoordinate.latitude;
     var lon = this.state.mapCoordinate.longitude;
-
     var ownMarkLat = this.state.markCoordinate.latitude;
     var ownMarkLon = this.state.markCoordinate.longitude;
-
+    if (ownMarkLat && ownMarkLon){
+      this.saveOwnPosition();
+    }
     var markers = this.friendsLatLng();
-    console.log(markers);
     return (
       <View style ={styles.container}>
         <MapView

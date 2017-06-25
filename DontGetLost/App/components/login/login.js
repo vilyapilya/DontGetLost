@@ -43,7 +43,7 @@ class Login extends Component{
     async verifyToken(token) {
       const sessionToken = token;
       try {
-        let response = await fetch('http://localhost:3000///api/verify?session%5Bsession_token%5D=' + sessionToken);
+        let response = await fetch('http://10.0.2.2:3000///api/verify?session%5Bsession_token%5D=' + sessionToken);
         let res = await response.text();
         if (response.status >= 200 && response.status < 300) {
           Actions.menu();
@@ -66,7 +66,6 @@ class Login extends Component{
 
   errors() {
     return (
-
       <View>
       {this.props.errors.map((error, i) => <Text style={styles.errors} key={i}>{error}</Text>)}
       </View>

@@ -1,6 +1,6 @@
 export const joinGroup = (group_id) => (
   fetch(
-    'http://localhost:3000///api/groupmembers',
+    'http://10.0.2.2:3000/api/groupmembers',
     {
       method: 'POST',
       headers: {
@@ -16,7 +16,7 @@ export const joinGroup = (group_id) => (
 
 export const leaveGroup = (membership_id) => (
   fetch(
-    `http://localhost:3000///api/groupmembers/${membership_id}`,
+    `http://10.0.2.2:3000/api/groupmembers/${membership_id}`,
     {
       method: 'DELETE',
       headers: {

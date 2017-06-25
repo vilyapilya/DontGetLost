@@ -1,6 +1,6 @@
 export const createMembership = (groupMember) => (
   fetch(
-    'http://localhost:3000///api/groupmembers',
+    'http://10.0.2.2:3000/api/groupmembers',
     {
       method: 'POST',
       headers: {
@@ -16,7 +16,7 @@ export const createMembership = (groupMember) => (
 
 export const deleteMembership = (id) => (
   fetch(
-    `http://localhost:3000///api/groupmembers/${id}`,
+    `http://10.0.2.2:3000/api/groupmembers/${id}`,
     {
       method: 'DELETE',
       headers: {

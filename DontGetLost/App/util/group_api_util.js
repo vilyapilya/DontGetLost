@@ -1,6 +1,6 @@
 export const getGroup = (id) => (
   fetch(
-    `http://localhost:3000///api/groups/${id}`,
+    `http://10.0.2.2:3000/api/groups/${id}`,
     {
       method: 'GET',
       headers: {
@@ -13,7 +13,7 @@ export const getGroup = (id) => (
 
 export const getGroups = () => (
   fetch(
-    'http://localhost:3000///api/groups',
+    'http://10.0.2.2:3000/api/groups',
     {
       method: 'GET',
       headers: {
@@ -26,7 +26,7 @@ export const getGroups = () => (
 
 export const createGroup = (group) => (
   fetch(
-    'http://localhost:3000///api/groups',
+    'http://10.0.2.2:3000/api/groups',
     {
       method: 'POST',
       headers: {
@@ -42,7 +42,7 @@ export const createGroup = (group) => (
 
 export const deleteGroup = (id) => (
   fetch(
-    `http://localhost:3000///api/groups/${id}`,
+    `http://10.0.2.2:3000/api/groups/${id}`,
     {
       method: 'DELETE',
       headers: {
@@ -55,7 +55,7 @@ export const deleteGroup = (id) => (
 
 export const updateGroup = (group) => (
   fetch(
-    `http://localhost:3000///api/groups/${group.id}`,
+    `http://10.0.2.2:3000/api/groups/${group.id}`,
     {
       method: 'PATCH',
       headers: {
