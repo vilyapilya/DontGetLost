@@ -41,6 +41,11 @@ class Locat extends Component{
         latitude: LATITUDE,
         longitude: LONGITUDE,
         error: null
+      },
+      demoCoordinate: {
+        latitude: LATITUDE,
+        longitude: LONGITUDE+0.005,
+        error: null
       }
     };
     this.currentUserId = 8;
@@ -53,7 +58,7 @@ class Locat extends Component{
     };
 
     this.onRegionChange = this.onRegionChange.bind(this);
-    this.animate = this.animate.bind(this);
+    // this.animate = this.animate.bind(this);
   }
   getRandomInt(min, max){
     var intMin = parseInt(min);
@@ -104,6 +109,11 @@ class Locat extends Component{
             longitude: position.coords.longitude,
             error: null
           },
+          demoCoordinate: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude+0.005,
+            error: null
+          }
         });
 
         this.updateMapPosition();
@@ -114,9 +124,8 @@ class Locat extends Component{
 
     this.props.requestSingleGroup(8);
     this.props.updateUser(this.currentUser);
+    this.saveOwnPosition();
   }
-
-
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchId);
@@ -136,13 +145,14 @@ class Locat extends Component{
     };
   }
 
-  animate(lat, lon){
-    const { markAnimRegion } = this.state;
-        markAnimRegion.timing({
-          latitude: lat,
-          longitude: lon,
-        }).start();
-  }
+  // animate(lat, lon){
+  //   const { markAnimRegion } = this.state;
+  //       markAnimRegion.timing({
+  //         latitude: lat,
+  //         longitude: lon,
+  //       }
+  //     ).start();
+  // }
 
   friendsLatLng(){
     if(!this.props.groupDetail.members_lat){
@@ -161,11 +171,14 @@ class Locat extends Component{
   }
 
   saveOwnPosition() {
-    var lat = this.state.markCoordinate.latitude;
-    var lon = this.state.markCoordinate.longitude;
-    var that = this;
-    console.log(lat);
-    that.props.updateUser(this.currentUser);
+    // var lat = this.state.markCoordinate.latitude;
+    // var lon = this.state.markCoordinate.longitude;
+    // var that = this;
+    // this.ping = setInterval(saveInDB, 1000);
+    // function saveInDB() {
+    //   that.props.updateUser(that.currentUser);
+    //   that.props.requestSingleGroup(8);
+    // }
   }
 
   render() {
@@ -178,6 +191,8 @@ class Locat extends Component{
       this.saveOwnPosition();
     }
     var markers = this.friendsLatLng();
+    console.log(this.state.markCoordinate.longitude);
+    console.log(this.state.demoCoordinate.longitude);
     return (
       <View style ={styles.container}>
         <MapView
@@ -193,6 +208,13 @@ class Locat extends Component{
         <MapView.Marker.Animated
           coordinate={this.state.markCoordinate}
         />
+        <MapView.Marker.Animated
+            coordinate={this.state.demoCoordinate}
+        >
+          <View style={styles.demoMarker}>
+            <Text style={styles.text}>Mary</Text>
+          </View>
+        </MapView.Marker.Animated>
         <FriendsMarks markers={markers} members={members}></FriendsMarks>
       </MapView>
     </View>
@@ -201,6 +223,16 @@ class Locat extends Component{
 }
 
 const styles = StyleSheet.create({
+    demoMarker: {
+      backgroundColor: "#9d0eaf",
+      padding: 5,
+      borderRadius: 5,
+    },
+    text: {
+      color: 'white',
+      fontSize: 20,
+    },
+
     container: {
       ...StyleSheet.absoluteFillObject,
       justifyContent: 'flex-end',
@@ -211,6 +243,7 @@ const styles = StyleSheet.create({
       ...StyleSheet.absoluteFillObject,
       flex :1,
    },
+
    bubble: {
      flex: 1,
      backgroundColor: 'rgba(255,255,255,0.7)',
@@ -218,21 +251,12 @@ const styles = StyleSheet.create({
      paddingVertical: 12,
      borderRadius: 20,
    },
+
    latlng: {
      width: 200,
      alignItems: 'stretch',
    },
-   button: {
-     width: 80,
-     paddingHorizontal: 12,
-     alignItems: 'center',
-     marginHorizontal: 10,
-   },
-   buttonContainer: {
-     flexDirection: 'row',
-     marginVertical: 20,
-     backgroundColor: 'transparent',
-   },
+
  });
 
 export default Locat;
