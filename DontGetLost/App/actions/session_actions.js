@@ -33,7 +33,7 @@ export const login = user => dispatch => {
       .then(
         (resp) => {
           if (resp.ok) {
-            // console.log(resp.json()) _65{object}
+            // console.log(resp.json()) //_65{object}
             resp.json()
               .then((currentUser) => {
                 dispatch(receiveCurrentUser(currentUser));

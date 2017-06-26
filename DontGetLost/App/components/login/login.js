@@ -44,8 +44,9 @@ class Login extends Component{
       const sessionToken = token;
       try {
 
-        let response = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
-
+        // let response = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
+        response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
+        // console.log(response.json())
         let res = await response.text();
         // console.log(response);
         if (response.status >= 200 && response.status < 300) {
@@ -67,8 +68,9 @@ class Login extends Component{
 
   onLoginPress() {
     const user = this.state;
-    this.props.login(user);
-    setTimeout(this.getToken, 1100);
+    this.props.login(user)
+
+    setTimeout(this.getToken, 2000);
   }
 
   errors() {
