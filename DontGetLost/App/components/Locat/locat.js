@@ -42,9 +42,14 @@ class Locat extends Component{
         longitude: LONGITUDE,
         error: null
       },
-      demoCoordinate: {
+      demoCoordinate1: {
         latitude: LATITUDE,
         longitude: LONGITUDE+0.005,
+        error: null
+      },
+      demoCoordinate2: {
+        latitude: LATITUDE+0.002,
+        longitude: LONGITUDE-0.005,
         error: null
       }
     };
@@ -109,9 +114,14 @@ class Locat extends Component{
             longitude: position.coords.longitude,
             error: null
           },
-          demoCoordinate: {
+          demoCoordinate1: {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude+0.005,
+            error: null
+          },
+          demoCoordinate2: {
+            latitude: position.coords.latitude+0.002,
+            longitude: position.coords.longitude-0.005,
             error: null
           }
         });
@@ -191,8 +201,6 @@ class Locat extends Component{
       this.saveOwnPosition();
     }
     var markers = this.friendsLatLng();
-    console.log(this.state.markCoordinate.longitude);
-    console.log(this.state.demoCoordinate.longitude);
     return (
       <View style ={styles.container}>
         <MapView
@@ -209,10 +217,18 @@ class Locat extends Component{
           coordinate={this.state.markCoordinate}
         />
         <MapView.Marker.Animated
-            coordinate={this.state.demoCoordinate}
+            coordinate={this.state.demoCoordinate1}
         >
           <View style={styles.demoMarker}>
             <Text style={styles.text}>Mary</Text>
+          </View>
+        </MapView.Marker.Animated>
+
+        <MapView.Marker.Animated
+            coordinate={this.state.demoCoordinate2}
+        >
+          <View style={styles.demoMarker}>
+            <Text style={styles.text}>Jack</Text>
           </View>
         </MapView.Marker.Animated>
         <FriendsMarks markers={markers} members={members}></FriendsMarks>

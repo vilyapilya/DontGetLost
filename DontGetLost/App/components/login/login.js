@@ -45,7 +45,7 @@ class Login extends Component{
       try {
 
         // let response = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
-        response = await fetch('http://10.0.2.2:3000/api/verify?session%5Bsession_token%5D=' + sessionToken);
+        response = await fetch('https://dontgetlost.herokuapp.com/api/verify?session%5Bsession_token%5D=' + sessionToken);
         // console.log(response.json())
         let res = await response.text();
         // console.log(response);
