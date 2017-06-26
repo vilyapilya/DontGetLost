@@ -16,8 +16,8 @@ export async function register (user) {
 
 export const login = (user) => (
   fetch(
-
-    'https://dontgetlost.herokuapp.com/api/session',
+    'http://10.0.2.2:3000/api/session',
+    // 'https://dontgetlost.herokuapp.com/api/session',
     {
       method: 'POST',
       headers: {

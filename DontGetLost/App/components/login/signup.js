@@ -78,7 +78,7 @@ async verifyToken(token) {
   // <TextInput onChangeText={(val) => this.setState({password_confirmation:val})} placeholder="Password Confirmation" secureTextEntry={true}/>
   render() {
     return (
-      <View style={{flex: 1, marginTop: 50}}>
+      <View style={{flex: 1}}>
         <Image source={require('../../../images/login.png')} style={styles.background}>
           <Text style={styles.title}>User Registration</Text>
           <TextInput style={styles.input} onChangeText={(val) => this.setState({username:val})} underlineColorAndroid= 'white' placeholderTextColor='white' placeholder="Username" />
