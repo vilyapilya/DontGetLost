@@ -38,7 +38,7 @@ class InvitationForm extends Component {
           placeholder="Enter Name" />
 
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#ADD8E6'
           activeOpacity={0.5}
           style={styles.buttonContainer}
           onPress={this.handleSubmit}>
@@ -46,7 +46,7 @@ class InvitationForm extends Component {
         </TouchableHighlight>
 
         <TouchableHighlight
-          underlayColor='#FFFFFF'
+          underlayColor='#A3A3A3'
           activeOpacity={0.5}
           style={styles.altButton}
           onPress={Actions.pop}>

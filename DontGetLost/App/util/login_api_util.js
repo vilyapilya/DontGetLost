@@ -1,6 +1,6 @@
 export async function register (user) {
   return await fetch(
-    'http://10.0.2.2:3000/api/users',
+    'https://dontgetlost.herokuapp.com/api/users',
     {
       method: 'POST',
       headers: {
@@ -16,7 +16,7 @@ export async function register (user) {
 
 export const login = (user) => (
   fetch(
-    'http://10.0.2.2:3000/api/session',
+    'https://dontgetlost.herokuapp.com/api/session',
     {
       method: 'POST',
       headers: {
@@ -32,7 +32,8 @@ export const login = (user) => (
 
 export const logout = () => (
   fetch(
-    'http://10.0.2.2:3000/api/session',
+
+    'https://dontgetlost.herokuapp.com/api/session',
     {
       method: 'DELETE',
       headers: {
@@ -45,7 +46,7 @@ export const logout = () => (
 
 export const updateUser = (user) => (
   fetch(
-    `http://10.0.2.2:3000/api/users/${user.id}`,
+    `https://dontgetlost.herokuapp.com/api/users/${user.id}`,
     {
       method: 'PATCH',
       headers: {

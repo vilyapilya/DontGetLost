@@ -27,7 +27,7 @@ class InvitationSentItem extends Component {
         </View>
 
           <TouchableHighlight
-            underlayColor='#FFFFFF'
+            underlayColor='#ff6961'
             activeOpacity={0.5}
             style={styles.buttonContainer}
             onPress={this.onDeleteInvitePress.bind(this)}>

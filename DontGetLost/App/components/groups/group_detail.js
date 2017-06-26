@@ -28,7 +28,7 @@ export default class GroupDetail extends Component {
       <View style={styles.namesContainer}>
         <ScrollView contentContainerStyle={styles.contentContainer}>
         <TouchableHighlight
-            underlayColor='#FFFFFF'
+            underlayColor='#d3a3e4'
             activeOpacity={0.5}
             onPress={Actions.invitationForm}
             style={styles.altButton}
