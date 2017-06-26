@@ -8,7 +8,6 @@ class FriendsMarks extends Component {
     super(props);
     this.markers = this.props.markers;
     this.members = this.props.members;
-    console.log(this.markers);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -17,18 +16,21 @@ class FriendsMarks extends Component {
     }
   }
 
+  onRegionChange(region) {
+
+  }
+
   render(){
-    console.log("oo");
-    console.log(this.markers);
-    if (this.markers) {
+    if (this.props.markers) {
+      // console.log(this.props.markers[0].latitude += 1);
       return (
         <View>
-          {this.markers.map( (c, i) => (
+          {this.props.markers.map( (c, i) => (
             <MapView.Marker.Animated
               coordinate={c}
             >
             <View style={styles.marker}>
-              <Text style={styles.text}>{this.members[i]}</Text>
+              <Text style={styles.text}>{this.props.members[i]}</Text>
             </View>
           </MapView.Marker.Animated>
           ))}
@@ -48,6 +50,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: 'white',
+    fontSize: 20,
   }
 });
 export default FriendsMarks;

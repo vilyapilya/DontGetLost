@@ -3,10 +3,13 @@ import Locat from './locat';
 import { requestSingleGroup, updateUser } from '../../actions/group_actions';
 
 
-const mapStateToProps = ( {groupDetail, currentUser} ) => ({
-  groupDetail: groupDetail,
-  currentUser: currentUser
-});
+const mapStateToProps = ( {groupDetail, currentUser} ) => {{
+  groupDetail = groupDetail;
+  currentUser = currentUser;
+  console.log("container");
+  console.log(groupDetail);
+  return {groupDetail, currentUser};
+}};
 
 const mapDispatchToProps = dispatch => ({
   requestSingleGroup: (id) => dispatch(requestSingleGroup(id)),
