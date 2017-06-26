@@ -25,17 +25,11 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 class Locat extends Component{
   constructor(props) {
     super(props);
-    this.currentUserId = this.props.currentUser.id;
+    // this.currentUserId = this.props.currentUser.id;
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     this.friendsLatLng = this.friendsLatLng.bind(this);
-    // this.saveOwnPosition = this.saveOwnPosition.bind(this);
-    // this.state = {
-    //   latitude: null,
-    //   longitude: null,
-    //   latitudeDelta: 0.015,
-    //   longitudeDelta: 0.015
-    // };
+    this.saveOwnPosition = this.saveOwnPosition.bind(this);
     this.state = {
       mapCoordinate: {
         latitude: LATITUDE,
@@ -48,11 +42,28 @@ class Locat extends Component{
         longitude: LONGITUDE,
         error: null
       },
+      demoCoordinate1: {
+        latitude: LATITUDE,
+        longitude: LONGITUDE+0.005,
+        error: null
+      },
+      demoCoordinate2: {
+        latitude: LATITUDE+0.002,
+        longitude: LONGITUDE-0.005,
+        error: null
+      }
+    };
+    this.currentUserId = 8;
+    this.currentUser = {
+        id: 8,
+        image_url: null,
+        username:  "person1",
+        latitude: this.state.markCoordinate.latitude,
+        longitude: this.state.markCoordinate.longitude
     };
 
-
     this.onRegionChange = this.onRegionChange.bind(this);
-    this.animate = this.animate.bind(this);
+    // this.animate = this.animate.bind(this);
   }
   getRandomInt(min, max){
     var intMin = parseInt(min);
@@ -103,6 +114,16 @@ class Locat extends Component{
             longitude: position.coords.longitude,
             error: null
           },
+          demoCoordinate1: {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude+0.005,
+            error: null
+          },
+          demoCoordinate2: {
+            latitude: position.coords.latitude+0.002,
+            longitude: position.coords.longitude-0.005,
+            error: null
+          }
         });
 
         this.updateMapPosition();
@@ -112,25 +133,12 @@ class Locat extends Component{
     );
 
     this.props.requestSingleGroup(8);
+    this.props.updateUser(this.currentUser);
+    this.saveOwnPosition();
   }
-
-  // saveOwnPosition(id, lat, lon, username) {
-  //   debugger
-  //   var user = {
-  //     id: id,
-  //     latitude: lat,
-  //     longitude: lon,
-  //     username: username
-  //   }
-    // this.ping = setInterval( () => {
-    //   this.props.updateUser(user);
-    // }, 10000)
-  //   this.props.updateUser(user);
-  // }
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchId);
-    clearInterval(this.ping);
   }
 
   onRegionChange(region) {
@@ -138,7 +146,6 @@ class Locat extends Component{
   }
 
   getInitialState() {
-    console.log(this.state.groupDetail);
     return {
       mapCoordinate: new MapView.AnimatedRegion({
         latitude: LATITUDE,
@@ -148,20 +155,20 @@ class Locat extends Component{
     };
   }
 
-  animate(lat, lon){
-    const { markAnimRegion } = this.state;
-        markAnimRegion.timing({
-          latitude: lat,
-          longitude: lon,
-        }).start();
-  }
+  // animate(lat, lon){
+  //   const { markAnimRegion } = this.state;
+  //       markAnimRegion.timing({
+  //         latitude: lat,
+  //         longitude: lon,
+  //       }
+  //     ).start();
+  // }
 
   friendsLatLng(){
     if(!this.props.groupDetail.members_lat){
       return null;
     }
     var markers = [];
-    console.log("method");
     var lats = this.props.groupDetail.members_lat;
     // console.log(lats);
     var lons = this.props.groupDetail.members_long;
@@ -173,18 +180,27 @@ class Locat extends Component{
     return markers;
   }
 
+  saveOwnPosition() {
+    // var lat = this.state.markCoordinate.latitude;
+    // var lon = this.state.markCoordinate.longitude;
+    // var that = this;
+    // this.ping = setInterval(saveInDB, 1000);
+    // function saveInDB() {
+    //   that.props.updateUser(that.currentUser);
+    //   that.props.requestSingleGroup(8);
+    // }
+  }
+
   render() {
-    console.log("cur");
     var members = this.props.groupDetail.members;
-    console.log(members);
     var lat = this.state.mapCoordinate.latitude;
     var lon = this.state.mapCoordinate.longitude;
-
     var ownMarkLat = this.state.markCoordinate.latitude;
     var ownMarkLon = this.state.markCoordinate.longitude;
-
+    if (ownMarkLat && ownMarkLon){
+      this.saveOwnPosition();
+    }
     var markers = this.friendsLatLng();
-    console.log(markers);
     return (
       <View style ={styles.container}>
         <MapView
@@ -200,6 +216,21 @@ class Locat extends Component{
         <MapView.Marker.Animated
           coordinate={this.state.markCoordinate}
         />
+        <MapView.Marker.Animated
+            coordinate={this.state.demoCoordinate1}
+        >
+          <View style={styles.demoMarker}>
+            <Text style={styles.text}>Mary</Text>
+          </View>
+        </MapView.Marker.Animated>
+
+        <MapView.Marker.Animated
+            coordinate={this.state.demoCoordinate2}
+        >
+          <View style={styles.demoMarker}>
+            <Text style={styles.text}>Jack</Text>
+          </View>
+        </MapView.Marker.Animated>
         <FriendsMarks markers={markers} members={members}></FriendsMarks>
       </MapView>
     </View>
@@ -208,6 +239,16 @@ class Locat extends Component{
 }
 
 const styles = StyleSheet.create({
+    demoMarker: {
+      backgroundColor: "#9d0eaf",
+      padding: 5,
+      borderRadius: 5,
+    },
+    text: {
+      color: 'white',
+      fontSize: 20,
+    },
+
     container: {
       ...StyleSheet.absoluteFillObject,
       justifyContent: 'flex-end',
@@ -218,6 +259,7 @@ const styles = StyleSheet.create({
       ...StyleSheet.absoluteFillObject,
       flex :1,
    },
+
    bubble: {
      flex: 1,
      backgroundColor: 'rgba(255,255,255,0.7)',
@@ -225,21 +267,12 @@ const styles = StyleSheet.create({
      paddingVertical: 12,
      borderRadius: 20,
    },
+
    latlng: {
      width: 200,
      alignItems: 'stretch',
    },
-   button: {
-     width: 80,
-     paddingHorizontal: 12,
-     alignItems: 'center',
-     marginHorizontal: 10,
-   },
-   buttonContainer: {
-     flexDirection: 'row',
-     marginVertical: 20,
-     backgroundColor: 'transparent',
-   },
+
  });
 
 export default Locat;

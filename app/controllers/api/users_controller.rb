@@ -27,14 +27,13 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find_by(username: user_params[:username])
-
     if @user
-      @user.update_attribute(image_url: user_params[:image_url])
-      if user_params.latitude != @user.latitude
-        @user.update_attribute(latitude: user_params[:latitude])
-      end
-      if user_params.longitude != @user.longitude
-        @user.update_attribute(latitude: user_params[:longitude])
+      # @user.update_attribute(image_url: user_params[:image_url])
+      if user_params[:latitude] != @user.latitude ||
+        user_params[:longitude] != @user.longitude
+        if !@user.update(user_params)
+          render json: @user.errors.full_messages, status: 422
+        end
       end
       render "api/users/show"
     else
